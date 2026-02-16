@@ -12,33 +12,33 @@ import { Image } from "astro:assets";
 <h1>"Chet Goes to the Doctor"</h1>
 <iframe width="1280" height="720" src="https://www.youtube.com/embed/jCWpdQ_m02c?si=oSF87_-hbvNizA2_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <a href="https://www.imdb.com/title/tt34618104/"> <img src="/images/imdb.svg" alt='"Chet Goes to the Doctor" imdb'></a>
-<h2>Despcriotion</h2>
-<p> 
-    
+<div class="desc">
+<h2>Description:</h2>
+<p> Todd's roommate is a puppet, and that's probably all there is to it. </p>
+</div>
+
 <h2>Credits:</h2>
 
 <div class="creditsi">
 
     <div class="creditg">
-Written by Wyatt Leach<br>
-Directed by Michael Losquadro
-    </div>
-    <div class="creditg">
-STARRING:
-<br><br>
-Todd: Dom Cacchione<br>
+<p>Written by candice Leach<br>
+Directed by Michael Losquadro</p> <br>
+<h3>STARRING:</h3>
+<br>
+<p>Todd: Dom Cacchione<br>
 Jo: Mars McInerney<br>
-Chet Voice & Puppeteer: Wyatt Leach<br>
+Chet Voice & Puppeteer: Candice Leach<br>
 Doctor: Nicole Earle<br>
 Psychologist: Liam Gorelin
 <br><br>
-Chet as Himself
-    </div>
+Chet as Himself</p>
+   
     </div><div class="credits">
     <div class="creditg">
-PRODUCTION:
-<br><br>
-Production Assistant: G DiPierro<br>
+<h3>PRODUCTION:</h3>
+<br>
+<p>Production Assistant: G DiPierro<br>
 Production Assistant: Vivian Kelleher<br>
 Production Assistant: Corinne Stanton<br>
 Time Lord: Gavin DesBois<br>
@@ -46,55 +46,76 @@ Leaf Coordinator: Matthew Zipparo<br>
 Audio Technician: Peter Cricchio<br>
 Audio Technician: Nick Ferrara<br>
 Lead Camera Operator: Michael Losquadro<br>
-Camera Operator: Drew Mulligan
+Camera Operator: Drew Mulligan</p>
     </div>
+
     <div class="creditg">
-SET DESIGN:
-<br><br>
+<h3>SET DESIGN:</h3>
+<p><br>
 Lead Prop Designer:   <br>                  
 Lead Set Designer:     Michael Losquadro<br>
-    </div>
-    <div class="creditg">
-Lead Puppet Designer:                   
+Lead Puppet Designer     
 <br><br>
 Puppet Designer: Demetria Boussios<br>
 Prop Designer: Jazmin Corrujedo<br>
 Prop Consultant: Nick DelBianco<br>
-Prop Consultant: Ryan Wade
-    </div>
+Prop Consultant: Ryan Wade</p>
+</div>
+   
     <div class="creditg">
 
-PUPPETEERING/FX:
-<br><br>
-Lead Puppeteer: Wyatt Leach<br>
+<h3>PUPPETEERING/FX:</h3>
+<br>
+Lead Puppeteer: Candice Leach<br>
 FX Coordinator: Michael Losquadro<br>
 Assistant Puppeteer: Gavin DesBois<br>
 Door Coordinator: Peter Cricchio
     </div>
     <div class="creditg">
-POST PRODUCTION:
-<br><br>
-Lead Editor: Wyatt Leach<br>
+<h3>POST PRODUCTION:</h3>
+<br>
+Lead Editor: Candice Leach<br>
 Color/Visual Designer: Michael Losquadro<br>
 Lead Audio Designer: Mars McInerne
-    </div>
-    <div class="creditg">
-Music:
+<br><br> </div></div>
+
+<div class="creditsi">
+<h3>Music</h3>
 The Schwegs - I Can’t Forget (Schweg at a Restaurant)<br>
 Additional Music licensed from AudioHero
-    </div>
-
 </div>
 
-    </div>
 </Layout>
 
 <style>
+    .desc{
+         align-self: center;
+        display: flex;
+        flex-direction:column;
+        justify-self: center;
+        padding: 20px;
+        padding-bottom: 30px;
+    }
+
+    .creditg{
+        padding: 20px
+    }
+    .credits{
+        align-self: center;
+        display: grid;
+        flex-direction:column;
+        justify-self: center;
+        text-align: center;
+        padding: 10px;
+        grid-template-columns: auto auto;
+    }
     .creditsi{
          align-self: center;
         display: flex;
         flex-direction:column;
-        justify-self: center
+        justify-self: center;
+        text-align: center;
+        padding: 10px
     }
     .episode{
         align-self: center;
@@ -115,8 +136,16 @@ Additional Music licensed from AudioHero
         align-self: center
     }
     h2{
+            align-content: center;
         color: white;
         font-family: 'Times New Roman', Times, serif;
+        align-self: center
+    }
+     h3{
+            align-content: center;
+        color: white;
+        font-family: 'Times New Roman', Times, serif;
+        align-self: center
     }
     p{
         color: white;
