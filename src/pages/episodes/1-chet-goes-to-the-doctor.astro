@@ -8,18 +8,19 @@ import { Image } from "astro:assets";
 ---
 
 <Layout title="Layout">
+    <Container>
     <div class="episode">
 <h1>"Chet Goes to the Doctor"</h1>
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/jCWpdQ_m02c?si=oSF87_-hbvNizA2_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/jCWpdQ_m02c?si=oSF87_-hbvNizA2_" height="315" width="560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <a href="https://www.imdb.com/title/tt34618104/"> <img src="/images/imdb.svg" alt='"Chet Goes to the Doctor" imdb'></a>
 <div class="desc">
 <h2>Description:</h2>
 <p> Todd's roommate is a puppet, and that's probably all there is to it. </p>
 </div>
 
-<h2>Credits:</h2>
-
 <div class="creditsi">
+
+<h2>Credits:</h2>
 
     <div class="creditg">
 <p>Written by candice Leach<br>
@@ -66,30 +67,30 @@ Prop Consultant: Ryan Wade</p>
 
 <h3>PUPPETEERING/FX:</h3>
 <br>
-Lead Puppeteer: Candice Leach<br>
+<p>Lead Puppeteer: Candice Leach<br>
 FX Coordinator: Michael Losquadro<br>
 Assistant Puppeteer: Gavin DesBois<br>
-Door Coordinator: Peter Cricchio
+Door Coordinator: Peter Cricchio</p>
     </div>
     <div class="creditg">
 <h3>POST PRODUCTION:</h3>
 <br>
-Lead Editor: Candice Leach<br>
+<p>Lead Editor: Candice Leach<br>
 Color/Visual Designer: Michael Losquadro<br>
-Lead Audio Designer: Mars McInerne
-<br><br> </div></div>
+Lead Audio Designer: Mars McInerne</p>
+</div></div>
 
 <div class="creditsi">
 <h3>Music</h3>
-The Schwegs - I Can’t Forget (Schweg at a Restaurant)<br>
-Additional Music licensed from AudioHero
+<p>The Schwegs - I Can’t Forget (Schweg at a Restaurant)<br>
+Additional Music licensed from AudioHero</p>
 </div>
+</Container>
 
 </Layout>
 
 <style>
     .desc{
-         align-self: center;
         display: flex;
         flex-direction:column;
         justify-self: center;
@@ -107,8 +108,12 @@ Additional Music licensed from AudioHero
         justify-self: center;
         text-align: center;
         padding: 10px;
-        grid-template-columns: auto auto;
+        grid-template-columns: repeat(2, 1fr);
     }
+    @media (max-width:722px){
+        .credits{
+            grid-template-columns: repeat(1, 1fr);
+        }}
     .creditsi{
          align-self: center;
         display: flex;
@@ -121,7 +126,11 @@ Additional Music licensed from AudioHero
         align-self: center;
         display: flex;
         flex-direction:column;
-        justify-self: center
+        justify-self: center;
+        place-self:center;
+        justify-content: center;
+        place-content: center;
+        flex-wrap:wrap;
     }
 
     .episode img{
@@ -130,19 +139,16 @@ Additional Music licensed from AudioHero
     }
 
     h1{
-        align-content: center;
         color: white;
         font-family: 'Times New Roman', Times, serif;
         align-self: center
     }
     h2{
-            align-content: center;
         color: white;
         font-family: 'Times New Roman', Times, serif;
-        align-self: center
+        
     }
      h3{
-            align-content: center;
         color: white;
         font-family: 'Times New Roman', Times, serif;
         align-self: center
@@ -151,4 +157,9 @@ Additional Music licensed from AudioHero
         color: white;
         font-family: 'Times New Roman', Times, serif;
     }
+    iframe{
+       align-self: center;
+       scale: 
+    }
+
     </style>
