@@ -1,0 +1,252 @@
+---
+
+---
+<div class="header">
+    <div class="left">
+        <a href="/"> <img src="img/michael Sticky Note 1.png" alt=""/> <p class="hideOnMobile">Home</p></a>
+   <!-- <a href="/">Home</a> -->
+    </div> 
+    
+    <nav>
+<ul id="sidebar" class="sidebar">
+    <div class="x">
+  <button type="button" id="closeSidebar">
+          <p>✕</p>
+        </button>
+    </div>
+<li><a href="/">Home</a></li> 󠁯
+<li>Episodes
+    
+    <li><a href="/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a></li>
+
+    <li><a href="/2-chet-goes-to-a-party">Chet Goes to a Party</a></li>
+
+    <li><a href="/3-chet-falls-in-love">Chet Falls in Love</a></li>
+
+    </li>
+<li><a href="/chetcrew">Meet the Crew</a></li> 󠁯
+<li><a href="/jos-blog">Jo's Blog</a></li>
+</ul> 
+
+<ul class="navbar">
+    <div class="hideOnMobile"><li>
+        
+    <li><a href="/">Home</a></li> 󠁯
+<li>Episodes
+    
+    <li><a href="episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a></li>
+
+    <li><a href="episodes/2-chet-goes-to-a-party">"Chet Goes to a Party"</a></li>
+
+    <li><a href="episodes/3-chet-falls-in-love">"Chet Falls in Love"</a></li>
+
+    </li>
+
+ <li>Production</li>
+    <li>Pre-Production</li>   
+    <li>Production</li>   
+    <li>Post-Production</li>   
+
+<li><a href="/jos-blog">Jo's Blog</a></li>
+
+<li><a href="/chetcrew">Meet the Crew</a></li> 󠁯
+
+    </div>
+<li>
+    <div class="hideOnDesktop">
+  <button type="button" id="menuToggle">
+          <p>☰</p>
+        </button></li></ul> 
+        </div>
+</nav>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar')
+    const toggle = document.getElementById('menuToggle')
+    if (!sidebar || !toggle) return
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.add('open')
+    })
+  })
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar')
+    const toggle = document.getElementById('menuToggle')
+    const closeBtn = document.getElementById('closeSidebar')
+    if (!sidebar || !toggle || !closeBtn) return
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.add('open')
+    })
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('open')
+    })
+  })
+</script>
+
+<style>
+
+.x{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 22px;
+}
+
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover{
+    color: red;
+}
+
+button p{
+    font-size: 30px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.hideOnMobile{
+    display: flex;
+}
+
+     .sidebar{
+        position: fixed;
+        z-index: 999;
+        top:0;
+        right:0;
+        height:100%;
+        width:250px;
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        box-shadow:-10px 0 10px rgba(0,0,0, 0.1);
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        
+    }
+
+    .sidebar.open{
+        display: flex;
+    }
+    
+    .sidebar li{
+        width: 100%;  
+    }
+    .sidebar a{
+
+    }
+
+.left a:hover{
+    color: rgb(255, 164, 164);
+}
+.left a img{
+    padding-top: 15px;
+}
+.left a{
+    display: flex;
+    align-items: center
+}
+
+.left{
+    display: flex;
+    flex-direction: row;
+}
+
+.left img{
+    max-width: 75px;
+    transform: rotate(2deg);
+}
+
+.header a{
+    font-weight: 650;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-style: bold;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+}
+.navbar a:hover{
+    color: red;
+}
+
+    .header{
+        display: flex;
+        width: 98vw;
+        justify-content: space-between; 
+        align-items: center;
+
+    padding-top:0px;
+    padding-left:35px;
+    padding-right:35px;
+    padding-bottom:10px;
+    
+}
+
+ 
+    .left{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .navbar ul{
+        display: flex;
+    }
+    .navbar a{
+        height: 100%;
+        padding: 0 8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar li:first-child{
+        margin-right: auto;
+    }
+
+    .hideOnDesktop{
+            display: none;
+        }
+
+    @media (max-width: 768px) {
+
+        .left{
+        display: flex;
+        flex-direction: column;
+        }
+
+        .hideOnMobile{
+            display: none;
+        }
+        .hideOnDesktop{
+            display: flex;
+        }
+
+        .header{
+    padding-top:0px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:0px;   
+
+}
+    }
+
+    @media (max-width: 400px) {
+        .sidebar{
+            width:100%
+        }
+    }
+
+</style>

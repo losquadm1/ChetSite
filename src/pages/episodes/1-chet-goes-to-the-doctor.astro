@@ -11,7 +11,11 @@ import { Image } from "astro:assets";
     <Container>
     <div class="episode">
 <h1>"Chet Goes to the Doctor"</h1>
-<iframe src="https://www.youtube.com/embed/jCWpdQ_m02c?si=oSF87_-hbvNizA2_" height="315" width="560" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<div class="videoWrapper">
+<iframe width="1120" height="630" src="https://www.youtube.com/embed/jCWpdQ_m02c?si=wl11f5-2M4KHhzIA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 <a href="https://www.imdb.com/title/tt34618104/"> <img src="/images/imdb.svg" alt='"Chet Goes to the Doctor" imdb'></a>
 <div class="desc">
 <h2>Description:</h2>
@@ -157,9 +161,19 @@ Additional Music licensed from AudioHero</p>
         color: white;
         font-family: 'Times New Roman', Times, serif;
     }
-    iframe{
-       align-self: center;
-       scale: 
-    }
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; 
+	padding-top: 25px;/* 16:9 */
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 
     </style>

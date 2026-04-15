@@ -1,7 +1,5 @@
 ---
-// we can import fonts here, after installing them via Fontsource
-// see https://fontsource.org/docs/installation for instructions
-import "@fontsource/karla";
+
 ---
 
 <style is:global>
@@ -12,8 +10,8 @@ import "@fontsource/karla";
     --color-accent: rgb(0, 200, 255);
     --color-focus-ring: rgb(255, 0, 255);
 
-    --font-body: "Karla", sans-serif;
-    --font-headings: "Karla", sans-serif;
+    --font-body: 'Times New Roman', Times, serif;
+    --font-headings: 'Times New Roman', Times, serif;
 
     font-size: 18px;
 
@@ -40,5 +38,10 @@ import "@fontsource/karla";
   /* default focus ring styles */
   *:focus-visible {
     outline: 3px solid var(--color-focus-ring);
+  }
+
+  p {
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--color-text);
   }
 </style>

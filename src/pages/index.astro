@@ -5,9 +5,13 @@ import Container from "@components/Container.astro";
 import AstroLogo from "@assets/images/astro-logo-light-gradient.png";
 import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
+import Header from "@components/Header.astro"
 ---
 
 <Layout title="Layout">
+
+  <Header/>
+
   <Container>
       <div class="herovid">
         <img src="Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">

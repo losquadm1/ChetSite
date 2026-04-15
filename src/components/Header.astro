@@ -1,0 +1,194 @@
+---
+
+---
+<div class="header">
+    <nav>
+<ul class="navbar">
+    <div class="hideOnMobile"><li>
+        
+    <li>
+        <a href="/">Home</a></li> 󠁯
+
+        <div class="dropdown">
+             <button class="dropbtn">Episodes
+                <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+
+        <a href="episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a>
+
+        <a href="episodes/2-chet-goes-to-a-party">"Chet Goes to a Party"</a>
+
+        <a href="episodes/3-chet-falls-in-love">"Chet Falls in Love"</a>
+    </div> </div> 
+    <!-- </div><li>Episodes
+    
+        <li><a href="episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a></li>
+
+        <li><a href="episodes/2-chet-goes-to-a-party">"Chet Goes to a Party"</a></li>
+
+        <li><a href="episodes/3-chet-falls-in-love">"Chet Falls in Love"</a></li>
+
+    </li> -->
+
+   <div class="dropdown">
+             <button class="dropbtn">Production
+                <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+
+        <a href="production/pre-production">"Pre-Production"</a>
+
+        <a href="production/production">"Production"</a>
+
+        <a href="production/post-production">"Post-Production"</a>
+    </div> </div> 
+    
+<li><a href="/jos-blog">Jo's Blog</a></li>
+
+<li><a href="/chetcrew">Meet the Crew</a></li> 󠁯
+
+    </div>
+<li>
+   </div></li></ul>
+</nav>
+</div>
+
+<style>
+
+ul {
+    list-style-type: none;
+}
+
+.hideOnMobile{
+    display: flex;
+}
+
+
+.left a:hover{
+    color: rgb(255, 164, 164);
+}
+.left a img{
+    padding-top: 15px;
+}
+.left a{
+    display: flex;
+    align-items: center
+}
+
+.left{
+    display: flex;
+    flex-direction: row;
+}
+
+.left img{
+    max-width: 75px;
+    transform: rotate(2deg);
+}
+
+.header a{
+    font-weight: 650;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-style: bold;
+    
+}
+.navbar{
+    display: flex;
+    align-items: center;
+}
+.navbar a:hover{
+    color: rgb(118, 218, 255);
+}
+
+    .header{
+        display: flex;
+        justify-content: flex-end; 
+        align-items: center;
+        position:sticky;
+        background-color:black;
+        top: 0;
+
+        z-index: 999;
+
+    padding-top:0px;
+    padding-left:35px;
+    padding-right:35px;
+    padding-bottom:10px;
+    
+}
+
+    .navbar ul{
+        display: flex;
+    }
+    .navbar a{
+        height: 100%;
+        padding: 0 8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar li:first-child{
+        margin-right: auto;
+    }
+
+    .hideOnDesktop{
+            display: none;
+        }
+</style>
+
+<style>
+    /* The dropdown container */
+.dropdown {
+    font-weight: bold;
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color:  rgb(0, 30, 119);
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
