@@ -16,8 +16,8 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 
   <Container>
       <div class="herovid">
-        <img src="Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
-        <img src="images/chet show logo.png">
+        <img src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
+        <img src="/images/chet show logo.png">
   </div>
 
 
@@ -126,27 +126,31 @@ This website is not only built to show off that perspective, but also to highlig
   }
 
   .herovid img{ 
+    display: flex;
     position: absolute;
-    top:0
+    top:0;
     left:0;
     object-fit: cover;
     width: 100vw;
-    justify-content: center;
-    
+    justify-content: center;    
   }
 
-  .herovid img[src="Screenshot 2025-09-04 at 5.13.12 PM.png"]{
+  .herovid img[src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png"]{
     height: 110vh
   }
   
-  .herovid img[src="images/chet show logo.png"]{
-width: 900px; }
+  .herovid img[src="/images/chet show logo.png"]{
+    width: 900px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -60%);
+  }
   @media (max-height: 400px){
-     .herovid img[src="images/chet show logo.png"]{
+     .herovid img[src="/images/chet show logo.png"]{
       scale: 25%
   }}
    @media (max-height: 200px){
-     .herovid img[src="images/chet show logo.png"]{
+     .herovid img[src="/images/chet show logo.png"]{
       scale: 5%
   }}
 
