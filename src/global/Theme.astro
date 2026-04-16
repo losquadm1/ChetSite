@@ -7,16 +7,16 @@
   :root {
     --color-background: rgb(0, 0, 0);
     --color-text: rgb(255, 255, 255);
-    --color-accent: rgb(0, 200, 255);
-    --color-focus-ring: rgb(255, 0, 255);
+    --color-accent: #3DC6ED;
+    --color-focus-ring: rgb(255, 255, 255);
 
     --font-body: 'Times New Roman', Times, serif;
-    --font-headings: 'Times New Roman', Times, serif;
+    --font-headings: 'Times New Roman', Times, serif; Weight: bold;
 
     font-size: 18px;
 
     /* These sizes are used by the Container component to set up the page container */
-    --size-page-width: 800px;
+    --size-page-width: 1100px;
     --size-page-padding: 1rem;
   }
 
@@ -32,7 +32,8 @@
   h4,
   h5,
   h6 {
-    color: var(--color-accent);
+    color: var(--color-text);
+    font-family: var(--font-headings);
   }
 
   /* default focus ring styles */
@@ -43,5 +44,20 @@
   p {
     font-family: 'Times New Roman', Times, serif;
     color: var(--color-text);
+  }
+
+  h1{
+    font-size: 60px;
+    padding-bottom: 10px;
+  }
+
+  h2{
+    font-size: 40px;
+    padding-bottom: 10px;
+  }
+
+  h3{
+    font-size: 30px;
+    padding-bottom: 10px;
   }
 </style>

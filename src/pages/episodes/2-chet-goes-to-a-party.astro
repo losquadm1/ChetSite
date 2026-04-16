@@ -1,0 +1,232 @@
+---
+import Layout from "@layouts/Layout.astro";
+import SampleComponent from "@components/SampleComponent.astro";
+import Container from "@components/Container.astro";
+import AstroLogo from "@assets/images/astro-logo-light-gradient.png";
+import { Content as SampleMarkdown } from "@content/sample-markdown.md";
+import { Image } from "astro:assets";
+import Header from "@components/Header.astro";
+import Episode from "@components/Episode.astro";
+---
+<Layout title='Chet Goes to a Party'>
+<Header/>
+ <Container>
+    <div class="episode">
+<h1>"Chet Goes to a Party"</h1>
+    </div>    
+    
+<Episode url="https://www.youtube.com/embed/ppdhtzxRZzw?si=PT-ugfnf59_W256M"/>
+
+    <div class="episode">
+<a href="https://www.imdb.com/title/tt34618104/"> <img src="/images/imdb.svg" alt='"Chet Goes to the Doctor" imdb'></a>
+
+<div class="desc">
+<h2>Description:</h2>
+<p> The follow-up to Fall 2024’s “Chet Goes to the Doctor.” One could even call it, Episode 2 of “The Chet Show.” </p>
+<div class="creditsi">
+
+<h2>Credits:</h2>
+
+    <div class="creditg">
+<p>Written by Candice Leach<br>
+Directed by Michael Losquadro</p> <br>
+<h3>STARRING:</h3>
+<br>
+Jo: Mars McInerney<br>
+Todd: Dom Cacchione<br>
+Bradley: Peter Cricchio<br>
+White Rabbit (Voice): Liam Gorelin<br>
+Chet (Voice): Candice Leach 
+<br><br>
+Chet as Himself
+<br><br>
+Gas Station Employee: Dani Kaminon<br>
+Becky: Corinne Stanton<br>
+Girl: Nicole Beltre<br>
+Acid Guy: Marley King<br>
+Frat Guy 1: Nick Del Bianco<br>
+Frat Guy 2: Nick Ferrara<br>
+The Director: Michael Losquadro<br>
+Boom Operator: Candice Leach<br>
+</p>
+   
+    </div><div class="credits">
+    <div class="creditg">
+<h3>PRODUCTION:</h3>
+<br>
+<p>
+Executive Producer: Michael Losquadro<br>
+Executive Producer: Mars McInerney<br>
+Executive Producer: Candice Leach<br>
+Production Supervisor: Mars McInerney<br>
+<br>
+Lead Camera Operator: Michael Losquadro<br>
+Camera Operator: Candice Leach</p>
+    </div>
+
+    <div class="creditg">
+<h3>PRODUCTION ASSISTANTS:</h3>
+<p><br>
+#1 Slatist in America: Corinne Stanton<br>
+Production Assistant: Vivian Kelleher<br>
+Production Assistant: Krystal McAdams<br>
+Production Assistant: Declan Caulfield<br>
+Production Assistant: Tim Borland<br>
+Production Assistant: G DiPierro<br>
+Production Assistant: Lena Beck<br>
+Production Assistant: Liam Behan
+</p>
+</div>
+    <div class="creditg">
+
+<h3>PUPPETEERING/SPECIAL FX:</h3>
+<br>
+<p>Lead Puppeteer: Candice Leach<br>
+FX Coordinator: Michael Losquadro<br>
+<br>
+Additional Puppeteers:<br>
+Michael Losquadro<br>
+Dom Cacchione</p>
+    </div>
+    <div class="creditg">
+<h3>AUDIO:</h3>
+<br>
+<p>
+Lead Audio Engineer: Mars McInerney<br>
+    <br>
+Boom Operator: Mars McInerney<br>
+Boom Operator: Vivian Kelleher<br>
+Boom Operator: Tim Borland<br>
+Boom Operator: Peter Cricchio<br>
+    <br>
+EQ Consultant: Lena Beck</p>
+</div>
+
+ <div class="creditg">
+<h3>GARFIELD(s):</h3>
+<p><br>
+Giant Inflatable Garfield: Vivian Kelleher<br>
+Giant Inflatable Garfield: Tim Borland<br>
+Giant Inflatable Garfield: G DiPierro<br>
+Giant Inflatable Garfield: Rowan Davidson<br>
+<br>
+Garfield Shirt Wearer: Nicole Beltre<br>
+<br>
+Inflatable Garfield Consultant: Michael Losquadro
+</p>
+</div>
+    <div class="creditg">
+
+<h3>PARTY EXTRAS:</h3>
+<br>
+<p>
+Stella LaFollette<br>
+Lena Beck<br>
+Krystal McAdams<br>
+Kim Friedlander<br>
+Cotye Allen<br>
+Samantha Cooper<br>
+Vivian Kelleher<br>
+Jeremiah McKinney<br>
+Vivian Kelleher<br>
+Tim Borland<br>
+Corinne Stanton<br>
+Jacob Samson<br>
+Gavin DeBois<br>
+G DiPierro<br>
+Johnel Quigley<br>
+Liam Behan<br>
+</p>
+    </div>
+
+    <div class="creditg">
+
+<h3>POST PRODUCTION:</h3>
+<br>
+<p>
+Lead Editor: Candice Leach<br>
+Color/Visual Designer: Michael Losquadro<br>
+Lead Audio Designer: Mars McInerney
+</p>
+    </div>
+
+    <div class="creditg">
+
+<h3>MUSIC:</h3>
+<p><br>
+Kazoo Intro: Michael Losquadro, Candice Leach,
+Tim Borland, Dom Cacchione, Mars McInerney<br>
+<br>
+Chet Show Theme Remix: Candice Leach<br>
+<br>
+Ave Maria Cover: Sunday 7pm Choir<br> 
+<br>
+Additional Music licensed from AudioHero
+</p>
+    </div>
+
+</div>
+
+<div class="creditsi">
+<h3>SPECIAL THANKS:</h3>
+<p>Speedway<br>
+Dan Labbato<br>
+Dom’s Roommates<br>
+Full Moon Farms</p> </div>
+</div>
+
+<style>
+    .desc{
+        display: flex;
+        flex-direction:column;
+        justify-self: center;
+        padding: 20px;
+        padding-bottom: 30px;
+    }
+
+    .creditg{
+        padding: 20px
+    }
+    .credits{
+        align-self: center;
+        display: grid;
+        flex-direction:column;
+        justify-self: center;
+        text-align: center;
+        padding: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width:722px){
+        .credits{
+            grid-template-columns: repeat(1, 1fr);
+        }}
+    .creditsi{
+         align-self: center;
+        display: flex;
+        flex-direction:column;
+        justify-self: center;
+        text-align: center;
+        padding: 10px
+    }
+    .episode{
+        align-self: center;
+        display: flex;
+        flex-direction:column;
+        justify-self: center;
+        place-self:center;
+        justify-content: center;
+        place-content: center;
+        flex-wrap:wrap;
+    }
+
+    .episode img{
+        max-width: 64px;
+        padding-top: 10px
+    }
+
+
+    </style>
+
+</div>
+</Container>
+</Layout>
