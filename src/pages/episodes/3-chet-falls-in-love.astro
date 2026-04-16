@@ -11,9 +11,213 @@ import Episode from "@components/Episode.astro";
 <Layout title='Chet Falls in Love'>
 <Header/>
  <Container>
-    <div class="episode">
+    <div class="title">
 <h1>"Chet Falls in Love"</h1>
+    </div>    
+    
 <Episode url="https://www.youtube.com/embed/smXfQCgZOVM?si=kYCdc7sh69NZehup"/>
 
+<div class="imdb">    
+<a href="https://www.imdb.com/title/tt34618104/"> <img src="/images/imdb.svg" alt='"Chet Goes to the Doctor" imdb'></a>
+</div>
 
-</div></Container></Layout>
+<div class="episode">
+<div class="desc">
+<h2>Description:</h2>
+<p>"Chet Falls in Love" is the third episode of "The Chet Show."</p></div>
+<div class="creditsi">
+
+<h2>Credits:</h2>
+
+    <div class="creditg">
+<p>Written by Candice Leach<br>
+Directed by Michael Losquadro</p> <br>
+<h3>STARRING:</h3>
+<br>
+Todd: Dom Cacchione<br>
+Jo: Mars McInerney<br>
+Chet Voice/Puppeteer: Candice Leach<br>
+Bradley: Peter Cricchio<br>
+Sockina: Andrew Sosa<br>
+Chet as Himself<br>
+King Puppet: Declan Caulfield<br>
+Sockina’s Body: G DiPierro<br>
+Becky: Corinne Stanton<br>
+Puppet Show Audience: Tim Borland<br>
+Puppet Show Audience: Corrine Stanton<br>
+Bartender: Hick Renadette<br>
+Bar Girl: Christina Beattie<br>
+The Psychologist: Liam Gorelin<br>
+<br>
+Chet as Himself
+</p>
+   
+    </div><div class="credits">
+    <div class="creditg">
+<h3>PRODUCTION:</h3>
+<br>
+<p>
+Executive Producer: Michael Losquadro<br>
+Executive Producer: Candice Leach<br>
+Executive Producer: Mars McInerney<br>
+<br>
+1st Assistant Director: Candice Leach<br>
+2nd Assistant Director: Declan Caulfield<br>
+<br>
+Director of Photography: Michael Losquadro<br>
+Lead Camera Operator: Michael Losquadro<br>
+Assistant Camera Operator: Candice Leach<br>
+<br>
+Slatist: Corrine Stanton<br>
+Boom Operator: Celia Buxton<br>
+Boom Operator: Evan Schack<br>
+<br>
+Transportation: Corinne Stanton<br>
+Transportation: Stella LaFollette<br>
+Transportation: Mars McInerney
+    </div>
+
+    <div class="creditg">
+<h3>PRODUCTION ASSISTANTS:</h3>
+<p><br>
+Andrew Sosa<br>
+Corrine Stanton<br>
+Celia Buxton<br>
+Evan Schack<br>
+Stella Lafollette<br>
+Krystal McAdams<br>
+Vivian Kelleher<br>
+Lena Beck<br>
+Tim Borland<br>
+Red Permaul<br>
+Katie Solis
+</p>
+</div>
+    <div class="creditg">
+
+<h3>PUPPETEERING/SPECIAL FX:</h3>
+<br>
+<p>
+Lead Puppeteer: Candice Leach<br>
+Sockina Puppeteer: Andrew Sosa<br>
+Additional Puppeteer: Michael Losquadro<br>
+FX Coordinator: Michael Losquadro</p>
+    </div>
+    <div class="creditg">
+<h3>DESIGN:</h3>
+<br>
+<p>
+Lead Prop Designer: Michael Losquadro<br>
+Lead Set Designer: Michael Losquadro<br>
+Lead Puppet Designer: Michael Losquadro<br>
+<br>
+Puppet Designer: Demetria Boussios<br>
+Puppet Designer: Samantha Cooper<br>
+Prop Designer: Jazmin Corrujedo<br>
+Title Card Illustrator: Cotye Allen</p>
+</div>
+
+ <div class="creditg">
+<h3>EDITING:</h3>
+<p><br>
+Lead Editor: Candice Leach<br>
+Colorist/Visual Designer: Michael Losquadro<br>
+Sound Designer/Audio Mix: Mars McInerney
+</p>
+</div>
+    <div class="creditg">
+
+<h3>MARKETING:</h3>
+<br>
+<p>
+Social Media Manager: Krystal McAdams<br>
+Promotional Manager: Michael Losquadro<br>
+Poster Designer: Michael Losquadro
+</p>
+    </div>
+
+    <div class="creditg">
+
+<h3>MUSIC:</h3>
+<br>
+<p>
+The Schwegs - I Can’t Forget (Schweg at a Restaurant)[Demo]<br>
+Cenote - Kriegsjahr<br>
+All additional music licensed from AudioHero
+</p>
+    </div>
+
+    <div class="creditg">
+
+<h3>SPECIAL THANKS:</h3>
+<p><br>
+Snug Harbor<br>
+Full Moon Farms
+    </div>
+
+</div>
+
+<style>
+
+    .title{
+        display: flex;
+        justify-content: center;
+        padding-top: 60px;
+    }
+
+    .desc{        
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-self: center;
+    padding: 30px;
+    padding-bottom: 50px;
+    align-content: center;
+}
+
+    .creditg{
+        padding: 20px
+    }
+    .credits{
+        align-self: center;
+        display: grid;
+        flex-direction:column;
+        justify-self: center;
+        text-align: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width:722px){
+        .credits{
+            grid-template-columns: repeat(1, 1fr);
+        }}
+    .creditsi{
+         align-self: center;
+        display: flex;
+        flex-direction:column;
+        justify-self: center;
+        text-align: center;
+        padding: 10px
+    }
+    .episode{
+        display: flex;
+        flex-direction: column;
+        place-self: center;
+        place-content: center;
+        flex-wrap: wrap;
+    }
+
+    .imdb{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .imdb a img{
+        max-width: 64px;
+    }
+
+
+    </style>
+
+</div>
+</Container>
+</Layout>

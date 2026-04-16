@@ -1,0 +1,229 @@
+---
+
+---
+<div class="headermobile">
+
+    <nav>
+        <ul id="sidebar" class="sidebar">
+            <div class="x">
+                <button type="button" id="closeSidebar">
+                    <p>✕</p>
+                </button>
+            </div>
+            <li><a href="/">Home</a></li>
+            <li>
+                <span>Episodes</span>
+                <ul>
+                    <li><a href="/episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a></li>
+                    <li><a href="/episodes/2-chet-goes-to-a-party">"Chet Goes to a Party"</a></li>
+                    <li><a href="/episodes/3-chet-falls-in-love">"Chet Falls in Love"</a></li>
+                </ul>
+            </li>
+            <li><a href="/chetcrew">Meet the Crew</a></li>
+            <li><a href="/jos-blog">Jo's Blog</a></li>
+        </ul>
+
+        <ul class="navbar">
+            <li class="hideOnDesktop">
+                <button type="button" id="menuToggle">
+                    <span>☰</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.getElementById('sidebar')
+    const toggle = document.getElementById('menuToggle')
+    const closeBtn = document.getElementById('closeSidebar')
+
+    if (!sidebar || !toggle || !closeBtn) return
+
+    toggle.addEventListener('click', () => {
+      sidebar.classList.add('open')
+    })
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.remove('open')
+    })
+
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!sidebar.contains(e.target) && !toggle.contains(e.target)) {
+        sidebar.classList.remove('open')
+      }
+    })
+  })
+</script>
+
+<style>
+/* Close button container */
+
+.x {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 22px;
+}
+
+/* Button styles */
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    color: red;
+}
+
+button p {
+    font-size: 30px;
+}
+
+/* Remove list styling */
+ul {
+    list-style-type: none;
+}
+
+/* Sidebar navigation */
+.sidebar {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    right: -250px;
+    height: 100%;
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transition: right 0.3s ease;
+    padding-top: 20px;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+/* Sidebar list items */
+.sidebar li {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* Sidebar links */
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    display: block;
+    width: 100%;
+    font-weight: 650;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #3DC6ED;
+}
+
+/* Episodes section title */
+.sidebar span {
+    color: white;
+    padding: 15px 25px;
+    display: block;
+    width: 100%;
+    font-weight: 650;
+    font-size: 16px;
+}
+
+/* Nested episode links */
+.sidebar ul ul {
+    padding-left: 20px;
+}
+
+.sidebar ul ul li {
+    margin: 5px 0;
+}
+
+.sidebar ul ul a {
+    padding: 8px 25px;
+    font-size: 14px;
+}
+
+/* Header container */
+.headermobile {
+    display: none;
+    width: 98vw;
+    z-index: 1000;
+    position: relative;
+    padding: 0 35px 10px 35px;
+
+    margin-top:-65px
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .headermobile {
+        display: flex;
+    }
+}
+/* Navigation bar */
+.navbar {    
+    top: 0;
+    padding-top:20px;
+    display: flex;
+    align-items: center;
+    margin-top: 65px;
+    position: absolute;
+}
+
+/* Hamburger menu button */
+.hideOnDesktop {
+    display: flex;
+}
+
+.hideOnDesktop button {
+    background: none;
+    border: 2px solid white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+
+}
+
+.hideOnDesktop button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #3DC6ED;
+    color: #3DC6ED;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .headermobile {
+        padding: 0 15px 0 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+        right: -100%; /* Start fully off-screen for 100% width */
+    }
+
+    .sidebar.open {
+        right: 0; /* Slide in to fill the screen */
+    }
+}
+</style>

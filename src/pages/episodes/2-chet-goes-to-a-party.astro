@@ -11,18 +11,21 @@ import Episode from "@components/Episode.astro";
 <Layout title='Chet Goes to a Party'>
 <Header/>
  <Container>
-    <div class="episode">
+    <div class="title">
 <h1>"Chet Goes to a Party"</h1>
     </div>    
     
 <Episode url="https://www.youtube.com/embed/ppdhtzxRZzw?si=PT-ugfnf59_W256M"/>
 
-    <div class="episode">
+<div class="imdb">    
 <a href="https://www.imdb.com/title/tt34618104/"> <img src="/images/imdb.svg" alt='"Chet Goes to the Doctor" imdb'></a>
+</div>
 
+<div class="episode">
 <div class="desc">
 <h2>Description:</h2>
 <p> The follow-up to Fall 2024’s “Chet Goes to the Doctor.” One could even call it, Episode 2 of “The Chet Show.” </p>
+</div>
 <div class="creditsi">
 
 <h2>Credits:</h2>
@@ -176,13 +179,22 @@ Full Moon Farms</p> </div>
 </div>
 
 <style>
-    .desc{
+
+    .title{
         display: flex;
-        flex-direction:column;
-        justify-self: center;
-        padding: 20px;
-        padding-bottom: 30px;
+        justify-content: center;
+        padding-top: 60px;
     }
+
+    .desc{        
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-self: center;
+    padding: 30px;
+    padding-bottom: 50px;
+    align-content: center;
+}
 
     .creditg{
         padding: 20px
@@ -193,7 +205,6 @@ Full Moon Farms</p> </div>
         flex-direction:column;
         justify-self: center;
         text-align: center;
-        padding: 10px;
         grid-template-columns: repeat(2, 1fr);
     }
     @media (max-width:722px){
@@ -209,19 +220,20 @@ Full Moon Farms</p> </div>
         padding: 10px
     }
     .episode{
-        align-self: center;
         display: flex;
-        flex-direction:column;
-        justify-self: center;
-        place-self:center;
-        justify-content: center;
+        flex-direction: column;
+        place-self: center;
         place-content: center;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
     }
 
-    .episode img{
+    .imdb{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .imdb a img{
         max-width: 64px;
-        padding-top: 10px
     }
 
 

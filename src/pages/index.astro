@@ -6,11 +6,13 @@ import AstroLogo from "@assets/images/astro-logo-light-gradient.png";
 import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
+import HeaderMobile from "@components/HeaderMobile.astro";
 ---
 
 <Layout title="Chet Home">
 
   <Header/>
+  <HeaderMobile/>
 
   <Container>
       <div class="herovid">
@@ -24,10 +26,7 @@ import Header from "@components/Header.astro"
       <div class="whatis">
         <h1>"What is The Chet Show?"</h1>
       <div class="whatisbody">
-        <a href="episodes/1-chet-goes-to-the-doctor">episode 1</a>
-        <text>  &ensp;  “The Chet Show” is a short film series created by Michael Losquadro and Candice Leach. The series follows Chet, a puppet-college student living alongside his roommate and good friend Todd, as he is forced to come to terms with his own identity and what it means for him to be a puppet.
-                <br> &ensp; The series had an active 2 year production cycle with 4 episodes being produced: “Chet Goes to the Doctor”, “Chet Goes to a Party”, “Chet Falls in Love” and “The Chet Show”.
-        </text>
+        <p>“The Chet Show” is a short film series created by Michael Losquadro and Candice Leach. The series follows Chet, a puppet-college student living alongside his roommate and good friend Todd. The series had an active 2 year production cycle with 3 episodes produced: “Chet Goes to the Doctor”, “Chet Goes to a Party” and “Chet Falls in Love”.</p>
       </div>
 
 <br>
@@ -64,11 +63,11 @@ import Header from "@components/Header.astro"
 
 <br>
 
-<h1>Design in Film: Creating the Chet Show</h1>
-    <div class="design">
-<text>While working on this project I realized that my skills as a Designer were what were vital to keeping the production going for an elongated period of time. How situations were handled, how time was managed and even more specified things such as props, storyboarding and color theory all coming together to make the transition from one media to another very seamless.
-I wanted to use this website as a chance to document the process behind the production. As well as be a way for anybody to learn about production through the perspective of a designer.
-</text>
+<h1>Why the ChetSite?</h1>
+    <div class="whatisbody">
+<p>While working on this project a lot of problems arose that needed a specific skill set, one that was heavily geared towards the mindset of a designer. How problems were handled, how time was managed, and even more specified things such as prop production, storyboarding and color theory were improved from a designer’s perspective. This project provides documentation on the pre-production, production and post production. 
+This website is not only built to show off that perspective, but also to highlight all the other aspects that made this project such an important memory for all involved. This site’s primary purpose is documentation and appreciation for the project and all involved.
+</p>
     </div>
 
 
@@ -79,7 +78,21 @@ I wanted to use this website as a chance to document the process behind the prod
 </Layout>
 
 <style>
+.whatisbody p{
+  text-indent: 40px;
+}
 
+.whatis{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.whatisbody{
+  max-width:800px;
+  display: flex;
+  justify-content: center;
+}
   .hero{
     width: 10vw;
     height: 10vh;
