@@ -7,17 +7,116 @@ import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
+import Picture from "@components/Picture.astro";
 ---
 
-<Layout title="Home">
+<Layout title="Meet the Crew">
 
   <Header/>
   <HeaderMobile/>
 
   <Container>
-    <h1>ChetCrew</h1>
+    <div class="body">
+    <h1>Meet the Chet Crew</h1>
 
     <h2>The Creators</h2>
+
+    <div class="creators">
+    <Picture
+      name="Michael Losquadro"
+      role="Director/Lead Designer"
+      picture="/images/pictureplacehold.webp"/>
+
+       <Picture
+      name="Candice Leach"
+      role="Writer/Lead uppeteer"
+      picture="/images/pictureplacehold.webp"/>
+
+        <Picture
+      name="Mars McInerny"
+      role="Audio Engineer/Jo"
+      picture="/images/pictureplacehold.webp"/>
+
+        <Picture
+      name="Candice Leach"
+      role="Todd"
+      picture="/images/pictureplacehold.webp"/>
+    </div>
+
     <h2>Key Crew Members</h2>
+    <div class="keycrew">
+        <Picture
+      name="Corinne Stanton"
+      role="#1 Slatest in America/Becky"
+      picture="/images/pictureplacehold.webp"/>
+
+        <Picture
+      name="Declan Caulfield"
+      role="Assistant Director"
+      picture="/images/pictureplacehold.webp"/>
+
+        <Picture
+      name="Krystal McAdams"
+      role="Social Media Manager"
+      picture="/images/pictureplacehold.webp"/>
+    </div>
     <h2>Production Assistants</h2>
+    <div class="pa">
+    <Picture
+      name="PA Name"
+      role="Production Assistant"
+      picture="/images/pictureplacehold.webp"/>
+    </div>
 </Container>
+
+<style>
+  .body{
+    margin-top: 60px;
+
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+  }
+  .creators{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 999px){
+    .creators{
+        grid-template-columns: auto auto;
+    }
+    @media (max-width: 519px){
+        .creators{
+            grid-template-columns: auto;
+        }
+    }}
+
+    .keycrew{
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  @media (max-width: 768px){
+    .keycrew{
+        grid-template-columns: auto;
+    }
+   
+    }
+     .pa{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+  @media (max-width: 999px){
+    .pa{
+        grid-template-columns: auto auto;
+    }
+    @media (max-width: 519px){
+        .pa{
+            grid-template-columns: auto;
+        }
+    }}
+  
+</style>
+
