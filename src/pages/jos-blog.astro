@@ -17,16 +17,46 @@ import HeaderMobile from "@components/HeaderMobile.astro";
   <Container>
 <div class="JoContain">
     <div class="JoBlog">
+
+    <img src="images/geogif.gif"/>
+            <div class="JoBlogInner">
         <h1><img src="/images/jobloglogo.webp" alt="Jo's Blog'"/></h1>
         <h2>Welcome to Jo's Blog!</h2>
         <p>[blog bio]</p>
-    </div>
+            </div>
+    <img src="images/geogif.gif"/>
 
+    </div>
+<div class="buttons">
+<h3><button class="blogbutton"><a href="/jos-blog/episode-1"><img src="images/crewstories.png" alt="Crew Stories"/></a></button></h3>
+<h3><button class="blogbutton"><a href="/jos-blog/episode-2"><img src="images/coolwallpapers.gif" alt="Cool Wallpapers"/></a></button></h3>
+</div>
 
 </div> 
 </Container>
 
 <style>
+    .buttons{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+        }
+    .buttons button{
+        border: 5px outset #d5d5d5;
+        background-color: #d5d5d5;
+        width:300px;
+        height:70px;
+        padding: 0px;
+    }
+    .buttons button img{
+        object-fit: cover;
+    }
+     .buttons button:hover{
+         -webkit-filter: brightness(60%);
+}
     body{
         background-image: url("/images/JoStar.webp");
         background-repeat: repeat;
@@ -42,17 +72,39 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 
     .JoBlog{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        justify-content:center;
         padding: 20px;
         border: 15px solid #ff00b4;
         border-style: ridge;
         width: 100%;
+        
     }
-    .JoBlog img{
-        width:400px;
+    .JoBlogInner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .JoBlogInner img{
+        max-width:400px;
     }
 
+    .JoBlog img[src="images/geogif.gif"]{
+        margin-right: -40px;
+        margin-top: -100px;
+        padding: 50px;
+    }
+    @media (max-width: 900px) {
+        .JoBlog img[src="images/geogif.gif"]{
+        display: none
+    }
+}
+ @media (max-width: 460px) {
+        .JoBlog img{
+        width: 100%;
+    } }
     h1, h2, h3, p{
         color: #ffade6;
         font-family: "Comic Sans MS", sans-serif;}
