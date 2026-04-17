@@ -223,26 +223,24 @@ padding-top: 5px;
 <style>
 
 .parent{
-    position: sticky;
-    top: -65px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 900;
-
-margin-top: -65px;
-
-transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(-65px);
+    width: 100%;
 }
-.parent:hover, .parent:focus-within{
-   top: 0px;
-
-    .chethand{
+.parent.hover-active{
+   transform: translateY(0);
+}
+.parent.hover-active .chethand{
     margin-top: 10px;
     margin-right: 5px;
-   }
-
-   .chetbody{
+}
+.parent.hover-active .chetbody{
     margin-top: 50px;
-   }
-
 }
 
 .chetbody{
@@ -253,8 +251,7 @@ transition: 0.3s ease-in-out;
     right: 0;
     margin-top: -20px;
     z-index: 998;
-
-    transition: 0.5s ease-in-out;
+    transition: margin 0.5s ease-in-out;
 }
 
 .chetbody, .chethand img{
@@ -271,8 +268,28 @@ transition: 0.3s ease-in-out;
     margin-top: 4px;
     margin-right:10px;
     z-index: 999;
-
-    transition: .2s ease-in-out;
-    transition-delay: .05s;
+    transition: margin 0.2s ease-in-out;
 }
 </style>
+
+<script>
+  const hoverDelay = 1800;
+  const parentElement = document.querySelector('.parent');
+  let hoverTimeout;
+  if (parentElement) {
+    parentElement.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout);
+      parentElement.classList.add('hover-active');
+    });
+    parentElement.addEventListener('mouseleave', () => {
+      hoverTimeout = window.setTimeout(() => {
+        parentElement.classList.remove('hover-active');
+      }, hoverDelay);
+    });
+    document.addEventListener('click', (event) => {
+      if (!parentElement.contains(event.target)) {
+        clearTimeout(hoverTimeout);
+        parentElement.classList.remove('hover-active');
+      }
+    });  }
+</script>
