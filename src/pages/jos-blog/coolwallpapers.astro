@@ -9,7 +9,7 @@ import Header from "@components/Header.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 ---
 
-<Layout title="Jo's Blog">
+<Layout title="Cool Wallpapers">
 
   <Header/>
   <HeaderMobile/>
@@ -17,21 +17,20 @@ import HeaderMobile from "@components/HeaderMobile.astro";
   <Container>
 <div class="JoContain">
     <div class="JoBlog">
-
+        <div class="JoBlogIntro">
     <img src="/images/geogif.gif"/>
             <div class="JoBlogInner">
-        <h1><img src="/images/jobloglogo.webp" alt="Jo's Blog'"/></h1>
-        <h2>Welcome to Jo's Blog!</h2>
-        <p>[blog bio]</p>
-            </div>
+        <h1><img src="/images/jobloglogo.webp" alt="Cool Wallpapers'"/></h1>
+        <h2>Cool Wallpapers!</h2>
+        </div>
     <img src="/images/geogif.gif"/>
-
     </div>
-<div class="buttons">
-<h3><button class="blogbutton"><a href="/jos-blog/crewstories"><img src="/images/crewstories.png" alt="Crew Stories"/></a></button></h3>
-<h3><button class="blogbutton"><a href="/jos-blog/coolwallpapers"><img src="/images/coolwallpapers.gif" alt="Cool Wallpapers"/></a></button></h3>
+    
+    <div class="buttons">
+                <h3><button class="blogbutton"><a href="/jos-blog"><img src="/images/johome.webp" alt="Home"/></a></button></h3>
+                <h3><button class="blogbutton"><a href="/jos-blog/crewstories"><img src="/images/crewstories.png" alt="Crew Stories"/></a></button></h3>
+            </div>
 </div>
-
 </div> 
 </Container>
 
@@ -51,8 +50,26 @@ import HeaderMobile from "@components/HeaderMobile.astro";
         height:70px;
         padding: 0px;
     }
+    .buttons button a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
     .buttons button img{
+        display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+    }
+    .buttons button img[src="/images/johome.webp"]{
+        object-fit: contain;
+        padding: 0;
+        transform: scale(1.3);
+        margin-top: 2px;
+    }
+    .buttons button img[src="/images/crewstories.png"]{
+        object-fit: contain;
+        transform: none;
     }
      .buttons button:hover{
          -webkit-filter: brightness(60%);
@@ -72,15 +89,22 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 
     .JoBlog{
         display: flex;
-        flex-direction: row;
+        flex-direction: Column;
         align-items: center;
         justify-content:center;
         padding: 20px;
         border: 15px solid #ff00b4;
         border-style: ridge;
         width: 100%;
-        
     }
+
+    .JoBlogIntro{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content:center;
+    }
+
     .JoBlogInner{
         display: flex;
         flex-direction: column;
@@ -96,10 +120,9 @@ import HeaderMobile from "@components/HeaderMobile.astro";
         margin-top: -100px;
         padding: 50px;
     }
-    
     @media (max-width: 900px) {
         .JoBlog img[src="/images/geogif.gif"]{
-        display: none;
+        display: none
     }
 }
  @media (max-width: 460px) {
