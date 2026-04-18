@@ -22,10 +22,15 @@ const {file, name, alt, text} = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width:400px;
 }
 
 .wallpaperinfo a {
     padding-top: 20px;
+}
+
+.wallpaperinfo p {
+    max-width: 300px;
 }
 
 .wallpaper {
@@ -36,6 +41,7 @@ const {file, name, alt, text} = Astro.props;
     margin-top: 20px;
     width: 100%;
     max-width: 750px;
+    margin-left: 120px;
 }
 .wallpaper img {
     width: 300px;
@@ -52,6 +58,7 @@ button:hover{
         align-items: center;
         text-align: center;
         width: 100%;
+        margin-left: 0;
     }
 
     .wallpaper img {
@@ -68,13 +75,13 @@ button:hover{
         order: 1;
         margin-bottom: -8px;
         padding: 0;
-        max-width: 400px;
+        max-width: 450px;
         width: 100%;
     }
 
     .wallpaperinfo p {
         order: 2;
-        max-width: 400px;
+        max-width: 350px;
         width: 100%;
     }
 
