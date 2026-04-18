@@ -95,10 +95,19 @@ anyway, here ur gonna find all my awesome stories, a couple wallpapers, some pic
         max-width:400px;
     }
 
-    .JoBlog img[src="/images/geogif.gif"]{
-        margin-right: -40px;
-        margin-top: -100px;
-        padding: 50px;
+    .JoBlog > img[src="/images/geogif.gif"]{
+        position: absolute;
+        margin-top: -250px;
+    }
+
+    .JoBlog > img[src="/images/geogif.gif"]:first-of-type {
+        margin-right: 500px;
+        margin-left: 0;
+    }
+
+    .JoBlog > img[src="/images/geogif.gif"]:last-of-type {
+        margin-left: 580px;
+        margin-right: 0;
     }
     
     @media (max-width: 900px) {
@@ -106,6 +115,31 @@ anyway, here ur gonna find all my awesome stories, a couple wallpapers, some pic
         display: none;
     }
 }
+    @media (max-width: 768px) {
+        :global(.container) > .JoContain {
+            max-width: none;
+            width: 100vw;
+            margin-top: 10px;
+        }
+
+        .buttons {
+            gap: 10px;
+        }
+
+        .JoBlogInner img[src="/images/jobloglogo.webp"] {
+            padding-top: 60px;
+        }
+    }
+
+    @media (max-width: 628px) {
+        .JoBlog {
+            box-sizing: border-box;
+            width: 100%;
+            border-radius: 0;
+            border: none;
+            padding: 20px 10px;
+        }
+    }
  @media (max-width: 460px) {
         .JoBlog img{
         width: 100%;

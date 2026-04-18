@@ -7,6 +7,7 @@ import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
+import Wallpaper from "@components/Wallpaper.astro";
 ---
 
 <Layout title="Cool Wallpapers">
@@ -30,6 +31,10 @@ import HeaderMobile from "@components/HeaderMobile.astro";
                 <h3><button class="blogbutton"><a href="/jos-blog"><img src="/images/johome.webp" alt="Home"/></a></button></h3>
                 <h3><button class="blogbutton"><a href="/jos-blog/crewstories"><img src="/images/crewstories.png" alt="Crew Stories"/></a></button></h3>
             </div>
+    <Wallpaper file="/images/wallpapers/ChetHeadWallpaper.jpg" alt="Chet Head Wallpaper, the pattern includes images of Chet's heads in rows next to one another."name="Chet Head Wallpaper" text="chet has such an iconic head"/>
+    <Wallpaper file="/images/wallpapers/ToddToneWallpaper.jpg" alt="Todd's iconic green and stripes, covered in some awsome filters." name="Todd Lorem Ipsum Wallpaper" text="did you know that's actually his last name?"/>
+    <Wallpaper file="/images/wallpapers/JosBlogWallpaper.jpg" alt="A wallpaper themed after the incredible look of Jo's Blog!" name="Jo's Blog Wallpaper" text="the only wallpaper that looks even a third as cool as my blog B^)"/>
+
 </div>
 </div> 
 </Container>
@@ -115,16 +120,50 @@ import HeaderMobile from "@components/HeaderMobile.astro";
         max-width:400px;
     }
 
-    .JoBlog img[src="/images/geogif.gif"]{
-        margin-right: -40px;
-        margin-top: -100px;
-        padding: 50px;
+    .JoBlogIntro > img[src="/images/geogif.gif"]{
+        position: absolute;
+        margin-top: -80px;
+    }
+
+    .JoBlogIntro > img[src="/images/geogif.gif"]:first-of-type {
+        margin-right: 500px;
+        margin-left: 0;
+    }
+
+    .JoBlogIntro > img[src="/images/geogif.gif"]:last-of-type {
+        margin-left: 580px;
+        margin-right: 0;
     }
     @media (max-width: 900px) {
         .JoBlog img[src="/images/geogif.gif"]{
         display: none
     }
 }
+    @media (max-width: 768px) {
+        :global(.container) > .JoContain {
+            max-width: none;
+            width: 100vw;
+            margin-top: 0;
+        }
+
+        .buttons {
+            gap: 10px;
+        }
+
+        .JoBlogInner img[src="/images/jobloglogo.webp"] {
+            padding-top: 60px;
+        }
+    }
+
+    @media (max-width: 628px) {
+        .JoBlog {
+            box-sizing: border-box;
+            width: 100%;
+            border-radius: 0;
+            border: none;
+            padding: 20px 10px;
+        }
+    }
  @media (max-width: 460px) {
         .JoBlog img{
         width: 100%;

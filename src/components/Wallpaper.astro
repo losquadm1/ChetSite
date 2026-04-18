@@ -1,0 +1,91 @@
+---
+const {file, name, alt, text} = Astro.props;
+---
+
+<img src="/images/firewall.gif" alt=""/>
+
+    <div class="wallpaper">
+<img src={file} alt={alt}/>
+
+<div class="wallpaperinfo">
+<h3>{name}</h3>
+<p>{text}</p>
+<a href={file} download><button>DOWNLOAD HERE!!!</button></a>
+</div>
+
+</div>
+
+
+<style>
+
+.wallpaperinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.wallpaperinfo a {
+    padding-top: 20px;
+}
+
+.wallpaper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 750px;
+}
+.wallpaper img {
+    width: 300px;
+    max-width: 100%;
+
+button:hover{
+         -webkit-filter: brightness(60%);
+         }
+        }
+
+@media (max-width: 768px) {
+    .wallpaper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .wallpaper img {
+        width: 100%;
+        max-width: 250px;
+        order: 2;
+    }
+
+    .wallpaperinfo {
+        display: contents;
+    }
+
+    .wallpaperinfo h3 {
+        order: 1;
+        margin-bottom: -8px;
+        padding: 0;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .wallpaperinfo p {
+        order: 2;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .wallpaperinfo a {
+        order: 3;
+        padding-top: 8px;
+    }
+}
+
+    h1, h2, h3, p{
+        font-family: "Comic Sans MS", sans-serif;
+        color: #ffade6;
+    }
+</style>

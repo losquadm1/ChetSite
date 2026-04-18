@@ -120,16 +120,50 @@ import Story from "@components/Story.astro";
         max-width:400px;
     }
 
-    .JoBlog img[src="/images/geogif.gif"]{
-        margin-right: -40px;
-        margin-top: -100px;
-        padding: 50px;
+    .JoBlogIntro > img[src="/images/geogif.gif"]{
+        position: absolute;
+        margin-top: -80px;
+    }
+
+    .JoBlogIntro > img[src="/images/geogif.gif"]:first-of-type {
+        margin-right: 500px;
+        margin-left: 0;
+    }
+
+    .JoBlogIntro > img[src="/images/geogif.gif"]:last-of-type {
+        margin-left: 580px;
+        margin-right: 0;
     }
     @media (max-width: 900px) {
         .JoBlog img[src="/images/geogif.gif"]{
         display: none
     }
 }
+    @media (max-width: 768px) {
+        :global(.container) > .JoContain {
+            max-width: none;
+            width: 100vw;
+            margin-top: 0;
+        }
+
+        .buttons {
+            gap: 10px;
+        }
+
+        .JoBlogInner img[src="/images/jobloglogo.webp"] {
+            padding-top: 60px;
+        }
+    }
+
+    @media (max-width: 628px) {
+        .JoBlog {
+            box-sizing: border-box;
+            width: 100%;
+            border-radius: 0;
+            border: none;
+            padding: 20px 10px;
+        }
+    }
  @media (max-width: 460px) {
         .JoBlog img{
         width: 100%;
