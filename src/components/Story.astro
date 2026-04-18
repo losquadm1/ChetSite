@@ -1,0 +1,102 @@
+---
+const { title, name, role, story, picture, alt } = Astro.props;
+---
+
+<article class="story">
+    <div class="entree">
+        <h2>{title}</h2>
+    <div class="persona">
+        <h3>{name}</h3>
+        <p>{role}</p>
+    </div>
+        <p>{story}</p>
+    </div>
+
+    <img src={picture} alt={alt} loading="lazy" />
+</article>
+
+<style>
+    .story {
+        display: grid;
+        grid-template-columns: minmax(0, 1.2fr) minmax(220px, 0.8fr);
+        align-items: start;
+        gap: clamp(1rem, 3vw, 2rem);
+        width: min(100%, 1100px);
+        margin-inline: auto;
+        padding: clamp(1rem, 2vw, 1.5rem);
+        box-sizing: border-box;
+        background-color: rgb(0, 0, 0, 0.7);
+        border: 5px ridge #727272;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .entree {
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        max-width: 65ch;
+    }
+
+    .persona {
+        padding-left: 40px;
+        padding-bottom: 15px;
+    }
+    @media (max-width: 500px) {
+        .persona {
+            padding-left: 10px;
+        }
+    }
+    .persona h3,
+    .persona p {
+        margin: 0;
+    }
+
+    .entree > h2,
+    .entree > h3,
+    .entree > p {
+        margin: 0;
+    }
+
+    .entree > p + p {
+        margin-top: 0.6rem;
+    }
+
+    .story img {
+        width: min(100%, 420px);
+        height: auto;
+        justify-self: center;
+        border: 5px ridge #727272;
+    }
+
+    .entree p {
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+        color: white;
+        padding: 0px;
+    }
+
+    h2{
+        margin-top: 20px;
+        font-size: 35px;
+    
+    }
+
+    
+    @media (max-width: 880px) {
+        .story {
+            grid-template-columns: 1fr;
+        }
+
+        .entree {
+            max-width: 100%;
+        }
+    }
+</style>

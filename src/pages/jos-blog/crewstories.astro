@@ -7,6 +7,7 @@ import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
+import Story from "@components/Story.astro";
 ---
 
 <Layout title="Crew Stories">
@@ -24,12 +25,16 @@ import HeaderMobile from "@components/HeaderMobile.astro";
         <h2>Crew Stories!</h2>
         </div>
     <img src="/images/geogif.gif"/>
-    </div>
+</div>
     
     <div class="buttons">
                 <h3><button class="blogbutton"><a href="/jos-blog"><img src="/images/johome.webp" alt="Home"/></a></button></h3>
                 <h3><button class="blogbutton"><a href="/jos-blog/coolwallpapers"><img src="/images/coolwallpapers.gif" alt="Cool Wallpapers"/></a></button></h3>
                 </div>
+
+
+    <Story name="Krystal McAdams" role="Social Media Manager / Production Assistant" title="Where We’re Meant to Be" story="I joined the Chet crew around the beginning of Chet Goes to a Party as a Production Assistant, adding the Social Media Manager title in the beginning of Chet Falls in Love. I remember Mike, particularly, being hesitant on me co-running the account, and rightfully so! Experience aside, I was handling Tasty Pictures’ baby. That’s a scary thing to hand off to someone. That’s why it was such an honor when I got the thumbs up. I was behind the camera in a lot of the photos you see on Instagram and when I accidentally expressed this fact, Mike and Candice were like “pause,” and got me some, on camera, pictures with the puppet, the myth, the legend, Chet. Having gone from a Production Assistant to, not only a friend, but a trusted colleague, means the world to me. And I can speak for everyone involved when I say this production when I say this is where we were meant to be, on set riffing off each other, on and off camera." picture="/images/story/Krystal McAdams.jpeg" alt="Krystal McAdams posing with Chet, they are smiling, holding a slate while Chet is grinning at knee height." />
+    <Story name="Tim Borland" role="Production Assistant" title="Late Night (and early morning) Shoot"story="During the shooting of Chet 2, I was helping out with a scene, and as with many Chet shoots this one went particularly longer then planned. As the night went on and was about 1 am, I figured that we were almost done that night. I was very naïve in thinking so. Staying up till 5 am seeing the sun start to rise again as I watch behind the camera seeing Chet laying on the ground with like 5 lights surrounding him, everyone including myself in an almost delirious state, made me realize how dedicated everyone was to seeing this blue puppet story be told." picture="/images/story/Tim Borland.jpeg" alt="Chet laying on the ground, nobody else around. He must be tired from thhe late night shoot"/>
 </div>
 </div> 
 </Container>
@@ -129,6 +134,7 @@ import HeaderMobile from "@components/HeaderMobile.astro";
         .JoBlog img{
         width: 100%;
     } }
+
     h1, h2, h3, p{
         color: #ffade6;
         font-family: "Comic Sans MS", sans-serif;}
