@@ -15,10 +15,10 @@
     <li>
         <a href="/">Home</a></li> 󠁯
 
-        <div class="dropdown">
-             <button class="dropbtn">Episodes
-                <i class="fa fa-caret-down"></i>
-    </button>
+          <div class="dropdown">
+                 <button class="dropbtn"><span class="dropbtn-label">Episodes</span>
+                     <i class="fa fa-caret-down"></i>
+     </button>
     <div class="dropdown-content">
 
         <a href="/episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a>
@@ -37,10 +37,10 @@
 
     </li> -->
 
-   <div class="dropdown">
-             <button class="dropbtn">Production
-                <i class="fa fa-caret-down"></i>
-    </button>
+    <div class="dropdown">
+                 <button class="dropbtn"><span class="dropbtn-label">Production</span>
+                     <i class="fa fa-caret-down"></i>
+     </button>
     <div class="dropdown-content">
 
         <a href="/production/pre-production">"Pre-Production"</a>
@@ -120,6 +120,30 @@ ul {
     color: rgb(118, 218, 255);
 }
 
+.dropdown:hover .dropbtn .dropbtn-label::before,
+.dropdown .dropbtn:hover .dropbtn-label::before,
+.dropdown .dropbtn:focus-visible .dropbtn-label::before,
+.navbar a[href="/"]:hover::before,
+.navbar a[href="/"]:focus-visible::before,
+.navbar a[href="/jos-blog"]:hover::before,
+.navbar a[href="/jos-blog"]:focus-visible::before,
+.navbar a[href="/chetcrew"]:hover::before,
+.navbar a[href="/chetcrew"]:focus-visible::before {
+    content: '"';
+}
+
+.dropdown:hover .dropbtn .dropbtn-label::after,
+.dropdown .dropbtn:hover .dropbtn-label::after,
+.dropdown .dropbtn:focus-visible .dropbtn-label::after,
+.navbar a[href="/"]:hover::after,
+.navbar a[href="/"]:focus-visible::after,
+.navbar a[href="/jos-blog"]:hover::after,
+.navbar a[href="/jos-blog"]:focus-visible::after,
+.navbar a[href="/chetcrew"]:hover::after,
+.navbar a[href="/chetcrew"]:focus-visible::after {
+    content: '"';
+}
+
     .header{
         display: flex;
         justify-content: flex-end; 
@@ -172,6 +196,9 @@ ul {
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 f
 
