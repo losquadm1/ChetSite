@@ -14,13 +14,12 @@ import HeaderMobile from "@components/HeaderMobile.astro";
   <Header/>
   <HeaderMobile/>
 
-  <Container>
-      <div class="herovid">
-        <img src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
-        <img src="/images/chet show logo.png">
+  <div class="herovid">
+    <img class="hero-video-layer" src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
+    <img class="hero-logo-layer" src="/images/chet show logo.png" alt="">
   </div>
 
-
+  <Container>
     <section class="body">
 
       <div class="whatis">
@@ -77,6 +76,30 @@ This website is not only built to show off that perspective, but also to highlig
   </Container>
 </Layout>
 
+<script is:inline>
+  const heroVideoLayer = document.querySelector(".hero-video-layer");
+  const heroLogoLayer = document.querySelector(".hero-logo-layer");
+
+  if (heroVideoLayer && heroLogoLayer) {
+    const setHeroOpacity = () => {
+      const fadeDistance = window.innerHeight || 1;
+      const progress = Math.min(window.scrollY / fadeDistance, 1);
+      const videoEffectProgress = Math.min(progress * 2, 1);
+      const logoProgress = Math.min(progress * 3, 1);
+      const videoBlurProgress = videoEffectProgress * 0.7;
+      const maxVideoBlurPx = 10;
+
+      heroVideoLayer.style.opacity = String(1 - 0.9 * videoEffectProgress);
+      heroVideoLayer.style.filter = `blur(${maxVideoBlurPx * videoBlurProgress}px)`;
+      heroLogoLayer.style.opacity = String(1 - logoProgress);
+    };
+
+    window.addEventListener("scroll", setHeroOpacity, { passive: true });
+    window.addEventListener("resize", setHeroOpacity);
+    setHeroOpacity();
+  }
+</script>
+
 <style>
 .whatisbody p{
   text-indent: 40px;
@@ -117,26 +140,26 @@ This website is not only built to show off that perspective, but also to highlig
 }
 
   .herovid{
-    display: flex;
-    align-content: center;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:center;
-    padding-top: 50vh;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
   }
 
   .herovid img{ 
-    display: flex;
     position: absolute;
     top:0;
     left:0;
     object-fit: cover;
     width: 100vw;
-    justify-content: center;    
   }
 
   .herovid img[src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png"]{
-    height: 110vh
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    filter: blur(0px);
   }
   
   .herovid img[src="/images/chet show logo.png"]{
@@ -144,6 +167,7 @@ This website is not only built to show off that perspective, but also to highlig
     left: 50%;
     top: 50%;
     transform: translate(-50%, -60%);
+    opacity: 1;
   }
   @media (max-height: 400px){
      .herovid img[src="/images/chet show logo.png"]{
@@ -157,8 +181,10 @@ This website is not only built to show off that perspective, but also to highlig
 
 
 .body{
-  padding-top: 62vh;
-  padding-bottom: 50px
+  position: relative;
+  z-index: 1;
+  padding-top: 100vh;
+  padding-bottom: 300px
 }
 
 h1 {
