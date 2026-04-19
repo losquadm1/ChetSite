@@ -1,0 +1,81 @@
+---
+const { left, right } = Astro.props;
+---
+
+<div class="epbg" aria-hidden="true">
+    <div class="left">
+        <img src={left} alt=""/>
+    </div>
+    <div class="right">
+        <img src={right} alt=""/>
+    </div>
+</div>
+
+<style>
+
+
+    .epbg{
+        --bg-opacity: 0;
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        width:100vw;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .left, .right{
+        position: absolute;
+        top: 0;
+    }
+
+    .left {
+        left: 0;
+        margin-left: -50px
+    }
+
+    .right {
+        right: 0;
+        margin-right: -50px;
+    }
+
+    .left img,
+    .right img {
+        height: 100vh;
+        display: block;
+        opacity: var(--bg-opacity);
+    }
+
+    .right img {
+        transform: translateX(24px);
+    }
+
+    :global(main) {
+        position: relative;
+        z-index: 1;
+    }
+
+    @media (max-width: 1280px) {
+    .epbg{
+        display: none;
+    }
+}
+</style>
+
+<script>
+    const epbg = document.querySelector('.epbg') as HTMLElement | null;
+
+    if (epbg) {
+        const maxScroll = 1000;
+
+        const updateOpacity = () => {
+            const progress = Math.min(window.scrollY / maxScroll, 1);
+            const opacity = progress * 0.5;
+            epbg.style.setProperty('--bg-opacity', String(opacity));
+        };
+
+        updateOpacity();
+        window.addEventListener('scroll', updateOpacity, { passive: true });
+    }
+</script>

@@ -262,11 +262,21 @@ padding-top: 5px;
 .parent.hover-active{
    transform: translateY(0);
 }
+.parent:focus-within{
+   transform: translateY(0);
+}
 .parent.hover-active .chethand{
     margin-top: 10px;
     margin-right: 5px;
 }
+.parent:focus-within .chethand{
+    margin-top: 10px;
+    margin-right: 5px;
+}
 .parent.hover-active .chetbody{
+    margin-top: 50px;
+}
+.parent:focus-within .chetbody{
     margin-top: 50px;
 }
 
@@ -302,7 +312,7 @@ padding-top: 5px;
 <script>
   const hoverDelay = 1800;
   const parentElement = document.querySelector('.parent');
-  let hoverTimeout;
+    let hoverTimeout: number | undefined;
   if (parentElement) {
     parentElement.addEventListener('mouseenter', () => {
       clearTimeout(hoverTimeout);
@@ -314,6 +324,7 @@ padding-top: 5px;
       }, hoverDelay);
     });
     document.addEventListener('click', (event) => {
+            if (!(event.target instanceof Node)) return;
       if (!parentElement.contains(event.target)) {
         clearTimeout(hoverTimeout);
         parentElement.classList.remove('hover-active');

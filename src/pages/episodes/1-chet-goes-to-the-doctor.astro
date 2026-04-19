@@ -9,10 +9,14 @@ import Header from "@components/Header.astro";
 import Episode from "@components/Episode.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 import Credit from "@components/Credit.astro";
+import EpBg from "@components/EpBg.astro";
 ---
 <Layout title='Chet Goes to the Doctor'>
 <Header/>
 <HeaderMobile/>
+
+<EpBg left="/images/background/bg1L.webp" right="/images/background/bg1R.webp"/>
+
  <Container>
     <div class="title">
 <h1>"Chet Goes to the Doctor"</h1>
@@ -89,7 +93,7 @@ Chet as Himself</p>
 <br>
 <Credit role="Lead Editor" name="Candice Leach"/>
 <Credit role="Color/Visual Designer" name="Michael Losquadro"/>
-<Credit role="Lead Audio Designer" name="Mars McInerne"/>
+<Credit role="Lead Audio Designer" name="Mars McInerney"/>
 </div></div>
 
 <div class="creditsi">
@@ -103,7 +107,7 @@ Additional Music licensed from AudioHero</p> </div>
   .title{
         display: flex;
         justify-content: center;
-        padding-top: 60px;
+        padding-top: 20px;
     }
 
 .desc{
