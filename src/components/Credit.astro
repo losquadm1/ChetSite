@@ -1,0 +1,46 @@
+---
+const {name}= Astro.props;
+const {role}= Astro.props;
+---
+
+<div class="lr">
+    <div class="l">
+        <p>{role}</p>
+    </div>
+    <div class="r">
+        <p>{name}</p>
+    </div>
+</div>
+
+<style>
+.lr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.l{
+    width:250px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 16px;
+}
+.l p{
+    color: rgb(172, 172, 172);
+}
+.r{
+    width:250px;
+    text-align: left;
+    padding-left: 10px;
+    text-transform: uppercase;
+    }
+
+@media (max-width: 500px){
+    .l, .r{
+        width:150px;
+}
+.r{
+    font-size: 16px;
+}
+</style>

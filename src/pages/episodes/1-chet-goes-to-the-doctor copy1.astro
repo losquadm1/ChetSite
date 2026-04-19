@@ -8,7 +8,6 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import Episode from "@components/Episode.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
-import Credit from "@components/Credit.astro";
 ---
 <Layout title='Chet Goes to the Doctor'>
 <Header/>
@@ -34,62 +33,61 @@ import Credit from "@components/Credit.astro";
 <h2>Credits:</h2>
 
     <div class="creditg">
-<Credit role="Written by" name="Candice Leach"/>
-<Credit role="Directed by" name="Michael Losquadro"/>
-<br>
+<p>Written by candice Leach<br>
+Directed by Michael Losquadro</p> <br>
 <h3>STARRING:</h3>
 <br>
-<Credit role="Todd" name="Dom Cacchione"/>
-<Credit role="Jo" name="Mars McInerney"/>
-<Credit role="Chet Voice & Puppeteer" name="Candice Leach"/>
-<Credit role="Doctor" name="Nicole Earle"/>
-<Credit role="Psychologist" name="Liam Gorelin"/>
-<br>
+<p>Todd: Dom Cacchione<br>
+Jo: Mars McInerney<br>
+Chet Voice & Puppeteer: Candice Leach<br>
+Doctor: Nicole Earle<br>
+Psychologist: Liam Gorelin
+<br><br>
 Chet as Himself</p>
    
     </div><div class="credits">
     <div class="creditg">
 <h3>PRODUCTION:</h3>
 <br>
-<Credit role="Production Assistant" name="G DiPierro"/>
-<Credit role="Production Assistant" name="Vivian Kelleher"/>
-<Credit role="Production Assistant" name="Corinne Stanton"/>
-<Credit role="Time Lord" name="Gavin DesBois"/>
-<Credit role="Leaf Coordinator" name="Matthew Zipparo"/>
-<Credit role="Audio Technician" name="Peter Cricchio"/>
-<Credit role="Audio Technician" name="Nick Ferrara"/>
-<Credit role="Lead Camera Operator" name="Michael Losquadro"/>
-<Credit role="Camera Operator" name="Drew Mulligan"/>
+<p>Production Assistant: G DiPierro<br>
+Production Assistant: Vivian Kelleher<br>
+Production Assistant: Corinne Stanton<br>
+Time Lord: Gavin DesBois<br>
+Leaf Coordinator: Matthew Zipparo<br>
+Audio Technician: Peter Cricchio<br>
+Audio Technician: Nick Ferrara<br>
+Lead Camera Operator: Michael Losquadro<br>
+Camera Operator: Drew Mulligan</p>
     </div>
 
     <div class="creditg">
 <h3>SET DESIGN:</h3>
 <p><br>
-<Credit role="Lead Prop Designer" name=""/>
-<Credit role="Lead Set Designer" name="Michael Losquadro"/>
-<Credit role="Lead Puppet Designer" name=""/>
+Lead Prop Designer:   <br>                  
+Lead Set Designer:     Michael Losquadro<br>
+Lead Puppet Designer     
 <br><br>
-<Credit role="Puppet Designer" name="Demetria Boussios"/>
-<Credit role="Prop Designer" name="Jazmin Corrujedo"/>
-<Credit role="Prop Consultant" name="Nick DelBianco"/>
-<Credit role="Prop Consultant" name="Ryan Wade"/>
+Puppet Designer: Demetria Boussios<br>
+Prop Designer: Jazmin Corrujedo<br>
+Prop Consultant: Nick DelBianco<br>
+Prop Consultant: Ryan Wade</p>
 </div>
    
     <div class="creditg">
 
-<h3>PUPPETEERING / FX:</h3>
+<h3>PUPPETEERING/FX:</h3>
 <br>
-<Credit role="Lead Puppeteer" name="Candice Leach"/>
-<Credit role="FX Coordinator" name="Michael Losquadro"/>
-<Credit role="Assistant Puppeteer" name="Gavin DesBois"/>
-<Credit role="Door Coordinator" name="Peter Cricchio"/>
+<p>Lead Puppeteer: Candice Leach<br>
+FX Coordinator: Michael Losquadro<br>
+Assistant Puppeteer: Gavin DesBois<br>
+Door Coordinator: Peter Cricchio</p>
     </div>
     <div class="creditg">
 <h3>POST PRODUCTION:</h3>
 <br>
-<Credit role="Lead Editor" name="Candice Leach"/>
-<Credit role="Color/Visual Designer" name="Michael Losquadro"/>
-<Credit role="Lead Audio Designer" name="Mars McInerne"/>
+<p>Lead Editor: Candice Leach<br>
+Color/Visual Designer: Michael Losquadro<br>
+Lead Audio Designer: Mars McInerne</p>
 </div></div>
 
 <div class="creditsi">
@@ -125,7 +123,7 @@ Additional Music licensed from AudioHero</p> </div>
         flex-direction:column;
         justify-self: center;
         text-align: center;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     @media (max-width:722px){
         .credits{
@@ -137,6 +135,7 @@ Additional Music licensed from AudioHero</p> </div>
         flex-direction:column;
         justify-self: center;
         text-align: center;
+        padding: 10px
     }
     .episode{
         display: flex;

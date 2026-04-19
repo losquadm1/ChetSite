@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import Episode from "@components/Episode.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
+import Credit from "@components/Credit.astro";
 ---
 <Layout title='Chet Falls in Love'>
 <Header/>
@@ -38,7 +39,7 @@ Directed by Michael Losquadro</p> <br>
 <br>
 Todd: Dom Cacchione<br>
 Jo: Mars McInerney<br>
-Chet Voice/Puppeteer: Candice Leach<br>
+Chet Voice / Puppeteer: Candice Leach<br>
 Bradley: Peter Cricchio<br>
 Sockina: Andrew Sosa<br>
 Chet as Himself<br>
@@ -58,84 +59,77 @@ Chet as Himself
     <div class="creditg">
 <h3>PRODUCTION:</h3>
 <br>
-<p>
-Executive Producer: Michael Losquadro<br>
-Executive Producer: Candice Leach<br>
-Executive Producer: Mars McInerney<br>
+<Credit role="Executive Producer" name="Michael Losquadro"/>
+<Credit role="Executive Producer" name="Candice Leach"/>
+<Credit role="Executive Producer" name="Mars McInerney"/>
 <br>
-1st Assistant Director: Candice Leach<br>
-2nd Assistant Director: Declan Caulfield<br>
+<Credit role="1st Assistant Director" name="Candice Leach"/>
+<Credit role="2nd Assistant Director" name="Declan Caulfield"/>
 <br>
-Director of Photography: Michael Losquadro<br>
-Lead Camera Operator: Michael Losquadro<br>
-Assistant Camera Operator: Candice Leach<br>
+<Credit role="Director of Photography" name="Michael Losquadro"/>
+<Credit role="Lead Camera Operator" name="Michael Losquadro"/>
+<Credit role="Assistant Camera Operator" name="Candice Leach"/>
 <br>
-Slatist: Corrine Stanton<br>
-Boom Operator: Celia Buxton<br>
-Boom Operator: Evan Schack<br>
+<Credit role="Slatist" name="Corrine Stanton"/>
+<Credit role="Boom Operator" name="Celia Buxton"/>
+<Credit role="Boom Operator" name="Evan Schack"/>
 <br>
-Transportation: Corinne Stanton<br>
-Transportation: Stella LaFollette<br>
-Transportation: Mars McInerney
+<Credit role="Transportation" name="Corinne Stanton"/>
+<Credit role="Transportation" name="Stella LaFollette"/>
+<Credit role="Transportation" name="Mars McInerney"/>
     </div>
 
     <div class="creditg">
 <h3>PRODUCTION ASSISTANTS:</h3>
-<p><br>
-Andrew Sosa<br>
-Corrine Stanton<br>
-Celia Buxton<br>
-Evan Schack<br>
-Stella Lafollette<br>
-Krystal McAdams<br>
-Vivian Kelleher<br>
-Lena Beck<br>
-Tim Borland<br>
-Red Permaul<br>
-Katie Solis
-</p>
+<br>
+<Credit role="Production Assistant" name="Andrew Sosa"/>
+<Credit role="Production Assistant" name="Corrine Stanton"/>
+<Credit role="Production Assistant" name="Celia Buxton"/>
+<Credit role="Production Assistant" name="Evan Schack"/>
+<Credit role="Production Assistant" name="Stella Lafollette"/>
+<Credit role="Production Assistant" name="Krystal McAdams"/>
+<Credit role="Production Assistant" name="Vivian Kelleher"/>
+<Credit role="Production Assistant" name="Lena Beck"/>
+<Credit role="Production Assistant" name="Tim Borland"/>
+<Credit role="Production Assistant" name="Red Permaul"/>
+<Credit role="Production Assistant" name="Katie Solis"/>
 </div>
     <div class="creditg">
 
-<h3>PUPPETEERING/SPECIAL FX:</h3>
+<h3>PUPPETEERING / SPECIAL FX:</h3>
 <br>
-<p>
-Lead Puppeteer: Candice Leach<br>
-Sockina Puppeteer: Andrew Sosa<br>
-Additional Puppeteer: Michael Losquadro<br>
-FX Coordinator: Michael Losquadro</p>
+<Credit role="Lead Puppeteer" name="Candice Leach"/>
+<Credit role="Sockina Puppeteer" name="Andrew Sosa"/>
+<Credit role="Additional Puppeteer" name="Michael Losquadro"/>
+<Credit role="FX Coordinator" name="Michael Losquadro"/>
     </div>
     <div class="creditg">
 <h3>DESIGN:</h3>
 <br>
-<p>
-Lead Prop Designer: Michael Losquadro<br>
-Lead Set Designer: Michael Losquadro<br>
-Lead Puppet Designer: Michael Losquadro<br>
+<Credit role="Lead Prop Designer" name="Michael Losquadro"/>
+<Credit role="Lead Set Designer" name="Michael Losquadro"/>
+<Credit role="Lead Puppet Designer" name="Michael Losquadro"/>
 <br>
-Puppet Designer: Demetria Boussios<br>
-Puppet Designer: Samantha Cooper<br>
-Prop Designer: Jazmin Corrujedo<br>
-Title Card Illustrator: Cotye Allen</p>
+<Credit role="Puppet Designer" name="Demetria Boussios"/>
+<Credit role="Puppet Designer" name="Samantha Cooper"/>
+<Credit role="Prop Designer" name="Jazmin Corrujedo"/>
+<Credit role="Title Card Illustrator" name="Cotye Allen"/>
 </div>
 
  <div class="creditg">
 <h3>EDITING:</h3>
-<p><br>
-Lead Editor: Candice Leach<br>
-Colorist/Visual Designer: Michael Losquadro<br>
-Sound Designer/Audio Mix: Mars McInerney
-</p>
+<br>
+<Credit role="Lead Editor" name="Candice Leach"/>
+<Credit role="Colorist/Visual Designer" name="Michael Losquadro"/>
+<Credit role="Sound Designer/Audio Mix" name="Mars McInerney"/>
 </div>
     <div class="creditg">
 
 <h3>MARKETING:</h3>
 <br>
-<p>
-Social Media Manager: Krystal McAdams<br>
-Promotional Manager: Michael Losquadro<br>
-Poster Designer: Michael Losquadro
-</p>
+<Credit role="Social Media Manager" name="Krystal McAdams"/>
+<Credit role="Promotional Manager" name="Michael Losquadro"/>
+<Credit role="Poster Designer" name="Michael Losquadro"/>
     </div>
 
     <div class="creditg">
@@ -178,7 +172,8 @@ Full Moon Farms
 }
 
     .creditg{
-        padding: 20px
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
     .credits{
         align-self: center;
@@ -186,7 +181,7 @@ Full Moon Farms
         flex-direction:column;
         justify-self: center;
         text-align: center;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     @media (max-width:722px){
         .credits{
@@ -198,7 +193,6 @@ Full Moon Farms
         flex-direction:column;
         justify-self: center;
         text-align: center;
-        padding: 10px
     }
     .episode{
         display: flex;

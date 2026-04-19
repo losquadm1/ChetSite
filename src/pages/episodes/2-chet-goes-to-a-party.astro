@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import Episode from "@components/Episode.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
+import Credit from "@components/Credit.astro";
 ---
 <Layout title='Chet Goes to a Party'>
 <Header/>
@@ -33,92 +34,88 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 <h2>Credits:</h2>
 
     <div class="creditg">
-<p>Written by Candice Leach<br>
-Directed by Michael Losquadro</p> <br>
+<Credit role="Written by" name="Candice Leach"/>
+<Credit role="Directed by" name="Michael Losquadro"/>
+<br>
 <h3>STARRING:</h3>
 <br>
-Jo: Mars McInerney<br>
-Todd: Dom Cacchione<br>
-Bradley: Peter Cricchio<br>
-White Rabbit (Voice): Liam Gorelin<br>
-Chet (Voice): Candice Leach 
-<br><br>
+<Credit role="Jo" name="Mars McInerney"/>
+<Credit role="Todd" name="Dom Cacchione"/>
+<Credit role="Bradley" name="Peter Cricchio"/>
+<Credit role="White Rabbit (Voice)" name="Liam Gorelin"/>
+<Credit role="Chet (Voice)" name="Candice Leach"/>
+<br>
 Chet as Himself
 <br><br>
-Gas Station Employee: Dani Kaminon<br>
-Becky: Corinne Stanton<br>
-Girl: Nicole Beltre<br>
-Acid Guy: Marley King<br>
-Frat Guy 1: Nick Del Bianco<br>
-Frat Guy 2: Nick Ferrara<br>
-The Director: Michael Losquadro<br>
-Boom Operator: Candice Leach<br>
-</p>
+<Credit role="Gas Station Employee" name="Dani Kaminon"/>
+<Credit role="Becky" name="Corinne Stanton"/>
+<Credit role="Girl" name="Nicole Beltre"/>
+<Credit role="Acid Guy" name="Marley King"/>
+<Credit role="Frat Guy 1" name="Nick Del Bianco"/>
+<Credit role="Frat Guy 2" name="Nick Ferrara"/>
+<Credit role="The Director" name="Michael Losquadro"/>
+<Credit role="Boom Operator" name="Candice Leach"/>
    
     </div><div class="credits">
     <div class="creditg">
 <h3>PRODUCTION:</h3>
 <br>
-<p>
-Executive Producer: Michael Losquadro<br>
-Executive Producer: Mars McInerney<br>
-Executive Producer: Candice Leach<br>
-Production Supervisor: Mars McInerney<br>
+<Credit role="Executive Producer" name="Michael Losquadro"/>
+<Credit role="Executive Producer" name="Mars McInerney"/>
+<Credit role="Executive Producer" name="Candice Leach"/>
+<Credit role="Production Supervisor" name="Mars McInerney"/>
 <br>
-Lead Camera Operator: Michael Losquadro<br>
-Camera Operator: Candice Leach</p>
+<Credit role="Lead Camera Operator" name="Michael Losquadro"/>
+<Credit role="Camera Operator" name="Candice Leach"/>
     </div>
 
     <div class="creditg">
 <h3>PRODUCTION ASSISTANTS:</h3>
-<p><br>
-#1 Slatist in America: Corinne Stanton<br>
-Production Assistant: Vivian Kelleher<br>
-Production Assistant: Krystal McAdams<br>
-Production Assistant: Declan Caulfield<br>
-Production Assistant: Tim Borland<br>
-Production Assistant: G DiPierro<br>
-Production Assistant: Lena Beck<br>
-Production Assistant: Liam Behan
-</p>
+<br>
+<Credit role="#1 Slatist in America" name="Corinne Stanton"/>
+<Credit role="Production Assistant" name="Vivian Kelleher"/>
+<Credit role="Production Assistant" name="Krystal McAdams"/>
+<Credit role="Production Assistant" name="Declan Caulfield"/>
+<Credit role="Production Assistant" name="Tim Borland"/>
+<Credit role="Production Assistant" name="G DiPierro"/>
+<Credit role="Production Assistant" name="Lena Beck"/>
+<Credit role="Production Assistant" name="Liam Behan"/>
 </div>
     <div class="creditg">
 
-<h3>PUPPETEERING/SPECIAL FX:</h3>
+<h3>PUPPETEERING / SPECIAL FX:</h3>
 <br>
-<p>Lead Puppeteer: Candice Leach<br>
-FX Coordinator: Michael Losquadro<br>
+<Credit role="Lead Puppeteer" name="Candice Leach"/>
+<Credit role="FX Coordinator" name="Michael Losquadro"/>
 <br>
-Additional Puppeteers:<br>
+<p>Additional Puppeteers:<br>
 Michael Losquadro<br>
 Dom Cacchione</p>
     </div>
     <div class="creditg">
 <h3>AUDIO:</h3>
 <br>
-<p>
-Lead Audio Engineer: Mars McInerney<br>
-    <br>
-Boom Operator: Mars McInerney<br>
-Boom Operator: Vivian Kelleher<br>
-Boom Operator: Tim Borland<br>
-Boom Operator: Peter Cricchio<br>
-    <br>
-EQ Consultant: Lena Beck</p>
+<Credit role="Lead Audio Engineer" name="Mars McInerney"/>
+<br>
+<Credit role="Boom Operator" name="Mars McInerney"/>
+<Credit role="Boom Operator" name="Vivian Kelleher"/>
+<Credit role="Boom Operator" name="Tim Borland"/>
+<Credit role="Boom Operator" name="Peter Cricchio"/>
+<br>
+<Credit role="EQ Consultant" name="Lena Beck"/>
 </div>
 
  <div class="creditg">
 <h3>GARFIELD(s):</h3>
-<p><br>
-Giant Inflatable Garfield: Vivian Kelleher<br>
-Giant Inflatable Garfield: Tim Borland<br>
-Giant Inflatable Garfield: G DiPierro<br>
-Giant Inflatable Garfield: Rowan Davidson<br>
 <br>
-Garfield Shirt Wearer: Nicole Beltre<br>
+<Credit role="Giant Inflatable Garfield" name="Vivian Kelleher"/>
+<Credit role="Giant Inflatable Garfield" name="Tim Borland"/>
+<Credit role="Giant Inflatable Garfield" name="G DiPierro"/>
+<Credit role="Giant Inflatable Garfield" name="Rowan Davidson"/>
 <br>
-Inflatable Garfield Consultant: Michael Losquadro
-</p>
+<Credit role="Garfield Shirt Wearer" name="Nicole Beltre"/>
+<br>
+<Credit role="Inflatable Garfield Consultant" name="Michael Losquadro"/>
 </div>
     <div class="creditg">
 
@@ -148,11 +145,9 @@ Liam Behan<br>
 
 <h3>POST PRODUCTION:</h3>
 <br>
-<p>
-Lead Editor: Candice Leach<br>
-Color/Visual Designer: Michael Losquadro<br>
-Lead Audio Designer: Mars McInerney
-</p>
+<Credit role="Lead Editor" name="Candice Leach"/>
+<Credit role="Color/Visual Designer" name="Michael Losquadro"/>
+<Credit role="Lead Audio Designer" name="Mars McInerney"/>
     </div>
 
     <div class="creditg">
@@ -207,7 +202,7 @@ Full Moon Farms</p> </div>
         flex-direction:column;
         justify-self: center;
         text-align: center;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
     @media (max-width:722px){
         .credits{
@@ -219,7 +214,6 @@ Full Moon Farms</p> </div>
         flex-direction:column;
         justify-self: center;
         text-align: center;
-        padding: 10px
     }
     .episode{
         display: flex;
