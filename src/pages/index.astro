@@ -15,11 +15,13 @@ import HeadTitle from "@components/HeadTitle.astro";
   <Header/>
   <HeaderMobile title="Home"/>
 
-  <div class="herovid">
-    <img class="hero-video-layer" src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
-    <div class="hero-logo-wrap">
+ <div class="hero-logo-wrap">
       <img class="hero-logo-layer" src="/images/chet show logo.png" alt="">
     </div>
+
+  <div class="herovid">
+    <img class="hero-video-layer" src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
+   
   </div>
 
   <Container>
@@ -211,9 +213,17 @@ This website is not only built to show off that perspective, but also to highlig
     inset: 0;
     display: grid;
     place-items: center;
+    z-index: 500;
   }
 
-
+@media (max-width: 600px) {
+  .herovid {
+    height: 1000px;
+  }
+  .hero-logo-wrap img{
+    width: 300px;
+    height: auto;
+}
 
 .body{
   position: relative;
