@@ -82,8 +82,20 @@ This website is not only built to show off that perspective, but also to highlig
   const heroLogoLayer = document.querySelector(".hero-logo-layer");
 
   if (heroVideoLayer && heroLogoLayer) {
+    let fadeDistance = 1;
+    let scrollTicking = false;
+
+    const updateFadeDistance = (force = false) => {
+      const nextDistance = Math.max(window.innerHeight || 1, 1);
+
+      // Mobile browser chrome can fire tiny resize events while scrolling.
+      // Only accept large changes unless forced (e.g. initial load/orientation).
+      if (force || Math.abs(nextDistance - fadeDistance) > 120) {
+        fadeDistance = nextDistance;
+      }
+    };
+
     const setHeroOpacity = () => {
-      const fadeDistance = window.innerHeight || 1;
       const progress = Math.min(window.scrollY / fadeDistance, 1);
       const videoEffectProgress = Math.min(progress * 2, 1);
       const logoProgress = Math.min(progress * 3, 1);
@@ -95,8 +107,26 @@ This website is not only built to show off that perspective, but also to highlig
       heroLogoLayer.style.opacity = String(1 - logoProgress);
     };
 
-    window.addEventListener("scroll", setHeroOpacity, { passive: true });
-    window.addEventListener("resize", setHeroOpacity);
+    const onScroll = () => {
+      if (scrollTicking) return;
+
+      scrollTicking = true;
+      window.requestAnimationFrame(() => {
+        setHeroOpacity();
+        scrollTicking = false;
+      });
+    };
+
+    updateFadeDistance(true);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => {
+      updateFadeDistance(false);
+      setHeroOpacity();
+    });
+    window.addEventListener("orientationchange", () => {
+      updateFadeDistance(true);
+      setHeroOpacity();
+    });
     setHeroOpacity();
   }
 </script>
@@ -142,7 +172,11 @@ This website is not only built to show off that perspective, but also to highlig
 
   .herovid{
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
@@ -185,6 +219,7 @@ This website is not only built to show off that perspective, but also to highlig
   position: relative;
   z-index: 1;
   padding-top: 100vh;
+  padding-top: 100svh;
   padding-bottom: 300px
 }
 
