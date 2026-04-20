@@ -7,6 +7,7 @@ import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
+import HeadTitle from "@components/HeadTitle.astro";
 ---
 
 <Layout title="Home">
@@ -15,5 +16,5 @@ import HeaderMobile from "@components/HeaderMobile.astro";
   <HeaderMobile title="Home"/>
 
   <Container>
-<h1>Production</h1>
+<HeadTitle title="Production"/>
  </Container>

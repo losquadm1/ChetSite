@@ -10,6 +10,7 @@ import Episode from "@components/Episode.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 import Credit from "@components/Credit.astro";
 import EpBg from "@components/EpBg.astro";
+import HeadTitle from "@components/HeadTitle.astro";
 ---
 <Layout title='Chet Goes to a Party'>
 <Header/>
@@ -18,9 +19,7 @@ import EpBg from "@components/EpBg.astro";
 <EpBg left="/images/background/bg2L.webp" right="/images/background/bg2R.webp"/>
 
  <Container>
-    <div class="title">
-<h1>"Chet Goes to a Party"</h1>
-    </div>    
+    <HeadTitle title="Chet Goes to a Party"/>
     
 <Episode url="https://www.youtube.com/embed/ppdhtzxRZzw?si=PT-ugfnf59_W256M"/>
 

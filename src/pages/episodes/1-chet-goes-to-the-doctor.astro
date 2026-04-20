@@ -10,6 +10,7 @@ import Episode from "@components/Episode.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 import Credit from "@components/Credit.astro";
 import EpBg from "@components/EpBg.astro";
+import HeadTitle from "@components/HeadTitle.astro";
 ---
 <Layout title='Chet Goes to the Doctor'>
 <Header/>
@@ -19,7 +20,7 @@ import EpBg from "@components/EpBg.astro";
 
  <Container>
     <div class="title">
-<h1>"Chet Goes to the Doctor"</h1>
+<HeadTitle >"Chet Goes to the Doctor"</h1>
     </div>    
     
 <Episode url="https://www.youtube.com/embed/jCWpdQ_m02c?si=Qmpl71H7zupOL5Qq"/>
@@ -107,7 +108,6 @@ Additional Music licensed from AudioHero</p> </div>
   .title{
         display: flex;
         justify-content: center;
-        padding-top: 40px;
     }
 
 .desc{

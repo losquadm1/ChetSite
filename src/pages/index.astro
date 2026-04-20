@@ -7,6 +7,7 @@ import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
+import HeadTitle from "@components/HeadTitle.astro";
 ---
 
 <Layout title="Home">
@@ -23,7 +24,7 @@ import HeaderMobile from "@components/HeaderMobile.astro";
     <section class="body">
 
       <div class="whatis">
-        <h1>"What is The Chet Show?"</h1>
+        <HeadTitle title="What is The Chet Show?"/>
       <div class="whatisbody">
         <p>“The Chet Show” is a short film series created by Michael Losquadro and Candice Leach. The series follows Chet, a puppet-college student living alongside his roommate and good friend Todd. The series had an active 2 year production cycle with 3 episodes produced: “Chet Goes to the Doctor”, “Chet Goes to a Party” and “Chet Falls in Love”.</p>
       </div>

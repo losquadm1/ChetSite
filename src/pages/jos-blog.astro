@@ -7,6 +7,7 @@ import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
+import HeadTitle from "@components/HeadTitle.astro";
 ---
 
 <Layout title="Jo's Blog">
@@ -20,7 +21,7 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 
     <img src="/images/geogif.gif"/>
             <div class="JoBlogInner">
-        <h1><img src="/images/jobloglogo.webp" alt="Jo's Blog'"/></h1>
+        <HeadTitle title="Jo's Blog"/>
         <h2>Welcome to Jo's Blog!</h2>
         <p>whatsup chucklenuts!!! im Jo, ur fav character, and this is my blogsite. DONT tell the admins i put this page here. i havent been paying for a web host for like six months and nobody has caught me yet. 
 <br> <br>
