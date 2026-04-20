@@ -5,12 +5,16 @@ const { title } = Astro.props;
 <div class="pad"><p> </p></div>
 
 <style>
+h1{
+    padding-top: 60px;
+}
+
     @media (max-width: 600px) {
         h1 {
             display: none;
         }
         .pad {
-            height: 70px; /* Adjust this value as needed to create space for the mobile header */
+            height: 50px; /* Adjust this value as needed to create space for the mobile header */
         }
     }
 </style>
