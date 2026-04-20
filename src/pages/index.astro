@@ -24,7 +24,7 @@ import HeadTitle from "@components/HeadTitle.astro";
     <section class="body">
 
       <div class="whatis">
-        <HeadTitle title="What is The Chet Show?"/>
+        <h1>"What is The Chet Show?"</h1>
       <div class="whatisbody">
         <p>“The Chet Show” is a short film series created by Michael Losquadro and Candice Leach. The series follows Chet, a puppet-college student living alongside his roommate and good friend Todd. The series had an active 2 year production cycle with 3 episodes produced: “Chet Goes to the Doctor”, “Chet Goes to a Party” and “Chet Falls in Love”.</p>
       </div>
@@ -204,30 +204,23 @@ This website is not only built to show off that perspective, but also to highlig
     transform: translate(-50%, -60%);
     opacity: 1;
   }
-  @media (max-height: 400px){
-     .herovid img[src="/images/chet show logo.png"]{
-      scale: 25%
-  }}
-   @media (max-height: 200px){
-     .herovid img[src="/images/chet show logo.png"]{
-      scale: 5%
-  }}
+
+  .body{
+    position: relative;
+    z-index: 600;
+    padding-top: 100vh;
+    padding-top: 100svh;
+    padding-bottom: 600px;
+  }
 
 @media (max-width: 600px) {
   .herovid {
-    height: 950px;
+    height: 1000px;
   }
-  .hero-logo-wrap img{
+  .herovid img[src="/images/chet show logo.png"]{
     width: 400px;
     height: auto;
-}
-
-.body{
-  position: relative;
-  z-index: 1;
-  padding-top: 100vh;
-  padding-top: 100svh;
-  padding-bottom: 300px
+  }
 }
 
 h1 {
