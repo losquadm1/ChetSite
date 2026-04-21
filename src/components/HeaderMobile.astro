@@ -34,7 +34,7 @@ const { title } = Astro.props
 
             <li><a href="/jos-blog">Jo's Blog</a></li>
 
-            <li><a href="/chetcrew">Meet the Crew</a></li>
+            <li class="pad"><a href="/chetcrew">Meet the Crew</a></li>
             
         </ul>
 
@@ -76,6 +76,10 @@ const { title } = Astro.props
 <style>
 /* Close button container */
 
+.pad{
+    padding-bottom:300px
+}
+
 .x {
     display: flex;
     justify-content: flex-end;
@@ -112,6 +116,7 @@ ul {
     top: 0;
     right: -250px;
     height: 100%;
+    max-height: 100dvh;
     width: 250px;
     background-color: rgba(0, 0, 0);
     display: flex;
@@ -120,6 +125,9 @@ ul {
     justify-content: flex-start;
     transition: right 0.3s ease;
     padding-top: 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .sidebar.open {
