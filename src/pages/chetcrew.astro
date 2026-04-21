@@ -83,15 +83,25 @@ import HeadTitle from "@components/HeadTitle.astro";
   }
   .creators{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
+  }
+  .creators > *,
+  .keycrew > *,
+  .pa > * {
+    scroll-snap-align: start;
   }
   @media (max-width: 999px){
     .creators{
-        grid-template-columns: auto auto;
+        grid-template-columns: unset;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(240px, 78vw);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 12px;
     }
     @media (max-width: 519px){
         .creators{
-            grid-template-columns: auto;
+            grid-auto-columns: minmax(220px, 86vw);
         }
     }}
 
@@ -101,7 +111,12 @@ import HeadTitle from "@components/HeadTitle.astro";
   }
   @media (max-width: 768px){
     .keycrew{
-        grid-template-columns: auto;
+          grid-template-columns: unset;
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(240px, 78vw);
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          gap: 12px;
     }
    
     }
@@ -111,11 +126,16 @@ import HeadTitle from "@components/HeadTitle.astro";
   }
   @media (max-width: 999px){
     .pa{
-        grid-template-columns: auto auto;
+      grid-template-columns: unset;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(240px, 78vw);
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 12px;
     }
     @media (max-width: 519px){
         .pa{
-            grid-template-columns: auto;
+        grid-auto-columns: minmax(220px, 86vw);
         }
     }}
   
