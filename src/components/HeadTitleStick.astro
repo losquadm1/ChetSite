@@ -43,11 +43,13 @@ const { title, subtitle = "The Creators" } = Astro.props;
 
 <style>
     .title-wrap {
-        position: sticky;
+        position: absolute;
+        place-self: center;
         top: 0;
         z-index: 20;
         background-color: black;
         text-align: center;
+        width: 100vw;
     }
 
     h1{
