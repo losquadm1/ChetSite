@@ -12,132 +12,160 @@ import HeadTitle from "@components/HeadTitle.astro";
 ---
 
 <Layout title="Meet the Crew">
+  <div class="page-snap">
+    <section class="snap-panel intro-panel">
+      <Header/>
+      <HeaderMobile title="Meet the Crew"/>
+      <Container>
+        <div class="body">
+          <HeadTitle title="Meet the Chet Crew"/>
+        </div>
+      </Container>
+    </section>
 
-  <Header/>
-  <HeaderMobile title="Meet the Crew"/>
+    <section class="snap-panel">
+      <Container>
+        <div class="body">
+          <h2>The Creators</h2>
+          <section class="snap-section">
+            <Picture
+              name="Michael Losquadro"
+              role="Director/Lead Designer"
+              picture="/images/pictureplacehold.webp"/>
 
-  <Container>
-    <div class="body">
-    <HeadTitle title="Meet the Chet Crew"/>
+            <Picture
+              name="Candice Leach"
+              role="Writer/Lead Puppeteer"
+              picture="/images/pictureplacehold.webp"/>
+          </section>
+        </div>
+      </Container>
+    </section>
 
-    <h2>The Creators</h2>
+    <section class="snap-panel">
+      <Container>
+        <div class="body">
+          <h2>The Creators</h2>
+          <section class="snap-section">
+            <Picture
+              name="Mars McInerny"
+              role="Audio Engineer/Jo"
+              picture="/images/pictureplacehold.webp"/>
 
-    <div class="creators">
-    <Picture
-      name="Michael Losquadro"
-      role="Director/Lead Designer"
-      picture="/images/pictureplacehold.webp"/>
+            <Picture
+              name="Dom Cacchione"
+              role="Todd"
+              picture="/images/pictureplacehold.webp"/>
+          </section>
+        </div>
+      </Container>
+    </section>
 
-       <Picture
-      name="Candice Leach"
-      role="Writer/Lead uppeteer"
-      picture="/images/pictureplacehold.webp"/>
+    <section class="snap-panel">
+      <Container>
+        <div class="body">
+          <h2>Key Crew Members</h2>
+          <section class="snap-section">
+            <Picture
+              name="Corinne Stanton"
+              role="#1 Slatest in America/Becky"
+              picture="/images/pictureplacehold.webp"/>
 
-        <Picture
-      name="Mars McInerny"
-      role="Audio Engineer/Jo"
-      picture="/images/pictureplacehold.webp"/>
+            <Picture
+              name="Declan Caulfield"
+              role="Assistant Director"
+              picture="/images/pictureplacehold.webp"/>
+          </section>
+        </div>
+      </Container>
+    </section>
 
-        <Picture
-      name="Dom Cacchione"
-      role="Todd"
-      picture="/images/pictureplacehold.webp"/>
-    </div>
+    <section class="snap-panel">
+      <Container>
+        <div class="body">
+          <h2>Key Crew Members</h2>
+          <section class="snap-section">
+            <Picture
+              name="Krystal McAdams"
+              role="Social Media Manager"
+              picture="/images/pictureplacehold.webp"/>
 
-    <h2>Key Crew Members</h2>
-    <div class="keycrew">
-        <Picture
-      name="Corinne Stanton"
-      role="#1 Slatest in America/Becky"
-      picture="/images/pictureplacehold.webp"/>
+            <Picture
+              name="Krystal McAdams"
+              role="Social Media Manager"
+              picture="/images/pictureplacehold.webp"/>
+          </section>
+        </div>
+      </Container>
+    </section>
 
-        <Picture
-      name="Declan Caulfield"
-      role="Assistant Director"
-      picture="/images/pictureplacehold.webp"/>
-
-        <Picture
-      name="Krystal McAdams"
-      role="Social Media Manager"
-      picture="/images/pictureplacehold.webp"/>
-    </div>
-    <h2>Production Assistants</h2>
-    <div class="pa">
-    <Picture
-      name="PA Name"
-      role="Production Assistant"
-      picture="/images/pictureplacehold.webp"/>
-    </div>
-</Container>
+    <section class="snap-panel">
+      <Container>
+        <div class="body">
+          <h2>Production Assistants</h2>
+          <section class="snap-section">
+            <Picture
+              name="PA Name"
+              role="Production Assistant"
+              picture="/images/pictureplacehold.webp"/>
+          </section>
+        </div>
+      </Container>
+    </section>
+  </div>
 
 <style>
-  .body{
-    margin-top: 60px;
+  .page-snap {
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
 
-    margin-top: 60px;
+  .page-snap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .snap-panel {
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .intro-panel {
+    justify-content: center;
     align-items: center;
   }
-  .creators{
-    display: grid;
-    grid-template-columns: auto auto;
-  }
-  .creators > *,
-  .keycrew > *,
-  .pa > * {
-    scroll-snap-align: start;
-  }
-  @media (max-width: 999px){
-    .creators{
-        grid-template-columns: unset;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(240px, 78vw);
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        gap: 12px;
-    }
-    @media (max-width: 519px){
-        .creators{
-            grid-auto-columns: minmax(220px, 86vw);
-        }
-    }}
 
-    .keycrew{
-    display: grid;
-    grid-template-columns: auto auto auto;
+  .body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
   }
-  @media (max-width: 768px){
-    .keycrew{
-          grid-template-columns: unset;
-          grid-auto-flow: column;
-          grid-auto-columns: minmax(240px, 78vw);
-          overflow-x: auto;
-          scroll-snap-type: x mandatory;
-          gap: 12px;
-    }
-   
-    }
-     .pa{
+
+  .snap-section {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    justify-items: center;
   }
-  @media (max-width: 999px){
-    .pa{
-      grid-template-columns: unset;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(240px, 78vw);
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 12px;
+
+  @media (max-width: 680px) {
+    .snap-section {
+      grid-template-columns: 1fr;
     }
-    @media (max-width: 519px){
-        .pa{
-        grid-auto-columns: minmax(220px, 86vw);
-        }
-    }}
-  
+  }
 </style>
 
