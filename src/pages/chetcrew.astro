@@ -8,25 +8,19 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
 import Picture from "@components/Picture.astro";
-import HeadTitle from "@components/HeadTitle.astro";
+import HeadTitleS from "@components/HeadTitleStick.astro";
 ---
 
 <Layout title="Meet the Crew">
-  <div class="page-snap">
-    <section class="snap-panel intro-panel">
       <Header/>
       <HeaderMobile title="Meet the Crew"/>
-      <Container>
-        <div class="body">
-          <HeadTitle title="Meet the Chet Crew"/>
-        </div>
-      </Container>
-    </section>
+          <HeadTitleS title="Meet the Chet Crew"/>
+          
+  <div class="page-snap">
 
-    <section class="snap-panel">
+    <section class="snap-panel" data-sticky-subtitle="The Creators">
       <Container>
         <div class="body">
-          <h2>The Creators</h2>
           <section class="snap-section">
             <Picture
               name="Michael Losquadro"
@@ -42,10 +36,9 @@ import HeadTitle from "@components/HeadTitle.astro";
       </Container>
     </section>
 
-    <section class="snap-panel">
+    <section class="snap-panel" data-sticky-subtitle="The Creators">
       <Container>
         <div class="body">
-          <h2>The Creators</h2>
           <section class="snap-section">
             <Picture
               name="Mars McInerny"
@@ -61,10 +54,9 @@ import HeadTitle from "@components/HeadTitle.astro";
       </Container>
     </section>
 
-    <section class="snap-panel">
+    <section class="snap-panel" data-sticky-subtitle="Key Crew Members">
       <Container>
         <div class="body">
-          <h2>Key Crew Members</h2>
           <section class="snap-section">
             <Picture
               name="Corinne Stanton"
@@ -80,10 +72,9 @@ import HeadTitle from "@components/HeadTitle.astro";
       </Container>
     </section>
 
-    <section class="snap-panel">
+    <section class="snap-panel" data-sticky-subtitle="Key Crew Members">
       <Container>
         <div class="body">
-          <h2>Key Crew Members</h2>
           <section class="snap-section">
             <Picture
               name="Krystal McAdams"
@@ -91,18 +82,17 @@ import HeadTitle from "@components/HeadTitle.astro";
               picture="/images/pictureplacehold.webp"/>
 
             <Picture
-              name="Krystal McAdams"
-              role="Social Media Manager"
+              name="Demetria Boussios"
+              role="Puppet Designer"
               picture="/images/pictureplacehold.webp"/>
           </section>
         </div>
       </Container>
     </section>
 
-    <section class="snap-panel">
+    <section class="snap-panel" data-sticky-subtitle="Production Assistants">
       <Container>
         <div class="body">
-          <h2>Production Assistants</h2>
           <section class="snap-section">
             <Picture
               name="PA Name"
@@ -116,8 +106,9 @@ import HeadTitle from "@components/HeadTitle.astro";
 
 <style>
   .page-snap {
-    height: 100vh;
-    height: 100dvh;
+    --crew-title-height: 60px;
+    height: calc(100vh - var(--crew-title-height));
+    height: calc(100dvh - var(--crew-title-height));
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
@@ -129,15 +120,14 @@ import HeadTitle from "@components/HeadTitle.astro";
   }
 
   .snap-panel {
-    min-height: 100vh;
-    min-height: 100dvh;
+    min-height: calc(100vh - var(--crew-title-height));
+    min-height: calc(100dvh - var(--crew-title-height));
     scroll-snap-align: start;
     scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 1rem 0;
+    justify-content: flex-start;
     text-align: center;
   }
 
@@ -157,12 +147,16 @@ import HeadTitle from "@components/HeadTitle.astro";
   .snap-section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 40px;
     width: 100%;
     justify-items: center;
   }
 
   @media (max-width: 680px) {
+    .page-snap {
+      --crew-title-height: 64px;
+    }
+
     .snap-section {
       grid-template-columns: 1fr;
     }

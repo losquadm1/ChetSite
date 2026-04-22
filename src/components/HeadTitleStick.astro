@@ -1,0 +1,73 @@
+---
+const { title, subtitle = "The Creators" } = Astro.props;
+---
+
+<div class="title-wrap">
+    <h1>{title}</h1>
+    <h2 id="crew-sticky-subtitle">{subtitle}</h2>
+    <div class="pad"><p> </p></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const subtitleEl = document.getElementById("crew-sticky-subtitle");
+        const panels = document.querySelectorAll("[data-sticky-subtitle]");
+        const scrollRoot = document.querySelector(".page-snap");
+
+        if (!subtitleEl || !panels.length) return;
+
+        const setSubtitle = (panel: Element) => {
+            const next = panel.getAttribute("data-sticky-subtitle");
+            if (next) subtitleEl.textContent = next;
+        };
+
+        setSubtitle(panels[0]);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const visible = entries
+                    .filter((entry) => entry.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+                if (visible) setSubtitle(visible.target);
+            },
+            {
+                root: scrollRoot || null,
+                threshold: [0.4, 0.6, 0.8],
+            }
+        );
+
+        panels.forEach((panel) => observer.observe(panel));
+    });
+</script>
+
+<style>
+    .title-wrap {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background-color: black;
+        text-align: center;
+    }
+
+    h1{
+        padding-top: 40px;
+        margin-bottom: 6px;
+    }
+
+    h2 {
+        margin: 0;
+        font-weight: normal;
+        padding-bottom: 10px;
+        margin-top: -25px;
+    }
+
+    @media (max-width: 600px) {
+        h1 {
+            display: none;
+        }
+        .pad {
+            height: 20px; /* Adjust this value as needed to create space for the mobile header */
+        }
+    }
+</style>
