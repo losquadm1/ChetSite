@@ -121,10 +121,6 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     const scrollRoot = document.querySelector(".page-snap");
     const pictures = document.querySelectorAll(".page-snap .picture");
 
-    if (window.matchMedia("(max-width: 600px)").matches && staticVideo) {
-      staticVideo.pause();
-    }
-
     if (staticVideo && pauseBtn) {
       pauseBtn.addEventListener("click", () => {
         const shouldPause = !staticVideo.paused;
@@ -169,7 +165,7 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.15;
+    opacity: 0.2;
     transform: scale(1.2);
     transform-origin: center;
     z-index: -1;
@@ -195,7 +191,7 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
   }
 
   :global(.page-snap .picture) {
-    opacity: 0.28;
+    opacity: 0;
     transform: scale(0.985);
     transition: opacity 280ms ease, transform 280ms ease;
     will-change: opacity, transform;
@@ -261,11 +257,11 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 150px;
-    margin-top: 50px;
+    margin-top: 15px;
     justify-items: center;
   }
 
-  @media (max-width: 1290px) {
+  @media (max-width: 870px) {
     .page-snap {
       --crew-title-height: 64px;
       scroll-snap-type: y mandatory;
@@ -309,14 +305,14 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     }
 
     .snap-section :global(.picture img) {
-      width: 520px;
+      width: 400px;
       height: auto;
 
-    margin-top:50px
+    margin-top:125px
     }
   }
 
-  @media (max-height: 1100px) {
+  @media (max-height: 800px) {
     .snap-section :global(.picture img) {
       width: 120px;
       height: auto;

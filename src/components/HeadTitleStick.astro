@@ -16,9 +16,16 @@ const { title, subtitle = "The Creators" } = Astro.props;
 
         if (!subtitleEl || !panels.length) return;
 
+        let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
         const setSubtitle = (panel: Element) => {
             const next = panel.getAttribute("data-sticky-subtitle");
-            if (next) subtitleEl.textContent = next;
+            if (!next || next === subtitleEl.textContent) return;
+            subtitleEl.style.opacity = "0";
+            setTimeout(() => {
+                subtitleEl.textContent = next;
+                subtitleEl.style.opacity = "1";
+            }, 150);
         };
 
         setSubtitle(panels[0]);
@@ -29,7 +36,10 @@ const { title, subtitle = "The Creators" } = Astro.props;
                     .filter((entry) => entry.isIntersecting)
                     .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-                if (visible) setSubtitle(visible.target);
+                if (visible) {
+                    if (debounceTimer) clearTimeout(debounceTimer);
+                    debounceTimer = setTimeout(() => setSubtitle(visible.target), 1);
+                }
             },
             {
                 root: scrollRoot || null,
@@ -47,7 +57,7 @@ const { title, subtitle = "The Creators" } = Astro.props;
         place-self: center;
         top: 0;
         z-index: 20;
-        background-color: black;
+        background-color: transparent;
         text-align: center;
         width: 100vw;
     }
@@ -62,6 +72,8 @@ const { title, subtitle = "The Creators" } = Astro.props;
         font-weight: normal;
         padding-bottom: 10px;
         margin-top: -25px;
+        opacity: 1;
+        transition: opacity 0.15s ease;
     }
 
     @media (max-width: 600px) {
