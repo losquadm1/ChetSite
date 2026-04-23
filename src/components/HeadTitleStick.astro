@@ -65,11 +65,24 @@ const { title, subtitle = "The Creators" } = Astro.props;
     }
 
     @media (max-width: 600px) {
+        .title-wrap {
+            top: 0;
+            padding-top: 64px;
+            box-sizing: border-box;
+        }
+
         h1 {
             display: none;
         }
+
+        h2 {
+            display: block;
+            margin-top: 0;
+            padding-top: 8px;
+        }
+
         .pad {
-            height: 20px; /* Adjust this value as needed to create space for the mobile header */
+            height: 0px; /* Adjust this value as needed to create space for the mobile header */
         }
     }
 </style>

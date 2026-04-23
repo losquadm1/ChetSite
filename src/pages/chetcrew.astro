@@ -104,7 +104,49 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     </section>
   </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const scrollRoot = document.querySelector(".page-snap");
+    const pictures = document.querySelectorAll(".page-snap .picture");
+
+    if (!scrollRoot || !pictures.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("is-visible", entry.isIntersecting && entry.intersectionRatio >= 0.35);
+        });
+      },
+      {
+        root: scrollRoot,
+        threshold: [0.15, 0.35, 0.6, 0.85],
+      }
+    );
+
+    pictures.forEach((picture) => observer.observe(picture));
+  });
+</script>
+
 <style>
+  :global(.page-snap .picture) {
+    opacity: 0.28;
+    transform: scale(0.985);
+    transition: opacity 280ms ease, transform 280ms ease;
+    will-change: opacity, transform;
+  }
+
+  :global(.page-snap .picture.is-visible) {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.page-snap .picture) {
+      transform: none;
+      transition: none;
+    }
+  }
+
   .page-snap {
     --crew-title-height: 60px;
     height: calc(100vh - var(--crew-title-height));
@@ -148,20 +190,73 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
   .snap-section {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 40px;
-    width: 100%;
+    gap: 80px;
     justify-items: center;
     width: 1300px;
   }
 
-  @media (max-width: 680px) {
+  @media (max-width: 1290px) {
     .page-snap {
       --crew-title-height: 64px;
+      scroll-snap-type: y mandatory;
+    }
+
+    .snap-panel {
+      min-height: auto;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+
+    .body {
+      margin-top: 0;
+      width: 80vw;
+      max-width: none;
     }
 
     .snap-section {
       grid-template-columns: 1fr;
+      gap: 0;
+      width: 100vw;
+      max-width: none;
+      justify-items: stretch;
+      
+    }
+
+    .snap-section :global(.picture) {
+      min-height: calc(100svh - var(--crew-title-height) - 24px);
+      min-height: calc(100vh - var(--crew-title-height) - 24px);
+      min-height: calc(100dvh - var(--crew-title-height) - 24px);
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+      width: 100%;
+      aspect-ratio: auto;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+    }
+
+    .snap-section :global(.picture img) {
+      width: 520px;
+      height: auto;
+
+    margin-top:50px
     }
   }
+
+  @media (max-height: 750px) {
+    .snap-section :global(.picture img) {
+      width: 120px;
+      height: auto;
+    }
+
+    .snap-section {
+      gap: 0px;
+    }
+  }
+
+
 </style>
 

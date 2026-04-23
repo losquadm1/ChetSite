@@ -7,11 +7,11 @@ const {picture}= Astro.props;
     <img src={picture}/>
 
     <div class="name">
-        <p>{name}</p>
+        <h3>{name}</h3>
     </div>
 
     <div class="role">
-        <p>{role}</p>
+        <h4>{role}</h4>
     </div>
 </div>
 
@@ -22,9 +22,11 @@ const {picture}= Astro.props;
     align-items: center;
     margin-bottom: 20px;
     margin-top: 50px;
+    aspect-ratio: 3 / 4;
+    flex-wrap: nowrap;
 }
 .picture img {
-    width:1000px
+    width:600px
 }
 .name{
     font-size: 20px;
@@ -34,4 +36,19 @@ const {picture}= Astro.props;
     margin-top: -5px;
 }
 
+@media (max-height: 850px) {
+    .picture {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-height: 750px) {
+    .picture img {
+        width: 300px !important;
+        max-width: 90vw;
+        height: auto;
+        padding-top: 85px
+    }
+}
 </style>
