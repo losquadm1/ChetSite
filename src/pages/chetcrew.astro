@@ -12,9 +12,18 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
 ---
 
 <Layout title="Meet the Crew">
+  <div class="crew-shell">
       <Header/>
       <HeaderMobile title="Meet the Crew"/>
           <HeadTitleS title="Meet the Chet Crew"/>
+
+  <video class="tv-static-bg" autoplay muted loop playsinline aria-hidden="true">
+    <source src="/images/TVStatic.webm" type="video/webm" />
+  </video>
+
+  <button class="pause-static-btn" type="button" aria-pressed="false">
+    Pause Static
+  </button>
           
   <div class="page-snap">
 
@@ -103,11 +112,33 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       </Container>
     </section>
   </div>
+  </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    const staticVideo = document.querySelector<HTMLVideoElement>(".tv-static-bg");
+    const pauseBtn = document.querySelector<HTMLButtonElement>(".pause-static-btn");
     const scrollRoot = document.querySelector(".page-snap");
     const pictures = document.querySelectorAll(".page-snap .picture");
+
+    if (window.matchMedia("(max-width: 600px)").matches && staticVideo) {
+      staticVideo.pause();
+    }
+
+    if (staticVideo && pauseBtn) {
+      pauseBtn.addEventListener("click", () => {
+        const shouldPause = !staticVideo.paused;
+
+        if (shouldPause) {
+          staticVideo.pause();
+        } else {
+          staticVideo.play().catch(() => {});
+        }
+
+        pauseBtn.setAttribute("aria-pressed", shouldPause ? "true" : "false");
+        pauseBtn.textContent = shouldPause ? "Play Static" : "Pause Static";
+      });
+    }
 
     if (!scrollRoot || !pictures.length) return;
 
@@ -128,6 +159,41 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
 </script>
 
 <style>
+  .crew-shell {
+    position: relative;
+  }
+
+  .tv-static-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    transform: scale(1.2);
+    transform-origin: center;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .pause-static-btn {
+    position: absolute;
+    left: 16px;
+    bottom: 16px;
+    z-index: 30;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .pause-static-btn:hover {
+    background: rgba(0, 0, 0, 0.75);
+  }
+
   :global(.page-snap .picture) {
     opacity: 0.28;
     transform: scale(0.985);
@@ -149,12 +215,16 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
 
   .page-snap {
     --crew-title-height: 60px;
-    height: calc(100vh - var(--crew-title-height));
-    height: calc(100dvh - var(--crew-title-height));
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    height: 100dvh;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    padding-top: var(--crew-title-height);
+    box-sizing: border-box;
   }
 
   .page-snap::-webkit-scrollbar {
@@ -191,8 +261,8 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 80px;
+    margin-top: 50px;
     justify-items: center;
-    width: 1300px;
   }
 
   @media (max-width: 1290px) {
@@ -254,6 +324,13 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
 
     .snap-section {
       gap: 0px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .tv-static-bg,
+    .pause-static-btn {
+      display: none;
     }
   }
 

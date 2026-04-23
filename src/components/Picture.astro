@@ -36,19 +36,18 @@ const {picture}= Astro.props;
     margin-top: -5px;
 }
 
-@media (max-height: 850px) {
-    .picture {
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
-}
 
-@media (max-height: 750px) {
+@media (max-height: 1100px) {
     .picture img {
         width: 300px !important;
         max-width: 90vw;
         height: auto;
-        padding-top: 85px
+    }
+}
+
+@media (max-height: 750px) and (min-width: 768px) {
+    .picture {
+        margin-top: 100px !important;
     }
 }
 </style>
