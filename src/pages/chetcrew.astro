@@ -52,12 +52,12 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
             <Picture
               name="Mars McInerny"
               role="Audio Engineer/Jo"
-              picture="/images/pictureplacehold.webp"/>
+              picture="/images/crew/Mars.webp"/>
 
             <Picture
               name="Dom Cacchione"
               role="Todd"
-              picture="/images/pictureplacehold.webp"/>
+              picture="/images/crew/Dom.webp"/>
           </section>
         </div>
       </Container>
@@ -70,7 +70,7 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
             <Picture
               name="Corinne Stanton"
               role="#1 Slatest in America/Becky"
-              picture="/images/pictureplacehold.webp"/>
+              picture="/images/crew/Corrine.webp"/>
 
             <Picture
               name="Declan Caulfield"
@@ -88,12 +88,12 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
             <Picture
               name="Krystal McAdams"
               role="Social Media Manager"
-              picture="/images/pictureplacehold.webp"/>
+              picture="/images/crew/Krys.webp"/>
 
             <Picture
               name="Demetria Boussios"
               role="Puppet Designer"
-              picture="/images/pictureplacehold.webp"/>
+              picture="/images/crew/Meech.webp"/>
           </section>
         </div>
       </Container>
@@ -155,6 +155,10 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
 </script>
 
 <style>
+  body{
+    background-color: #010322;
+  }
+
   .crew-shell {
     position: relative;
   }
@@ -329,7 +333,11 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       display: none;
     }
   }
-
+@media (min-height: 1080px) {
+    .snap-section {
+      gap: 350px;
+    }
+    }
 
 </style>
 
