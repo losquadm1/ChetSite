@@ -99,14 +99,44 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       </Container>
     </section>
 
-    <section class="snap-panel" data-sticky-subtitle="Production Assistants">
+    <section id="everybody" class="snap-panel" data-sticky-subtitle="Everyone Else Who Made This Possible">
       <Container>
         <div class="body">
           <section class="snap-section">
-            <Picture
-              name="PA Name"
-              role="Production Assistant"
-              picture="/images/pictureplacehold.webp"/>
+            <ul class="everybody">
+              <li>Celia Buxton</li>
+              <li>Christina Beattie</li>
+              <li>Cotye Allen</li>
+              <li>Dani Kaminon</li>
+              <li>Drew Mulligan</li>
+              <li>Evan Schack</li>
+              <li>G DiPierro</li>
+              <li>Gavin DeBois</li>
+              <li>Hick Renadette</li>
+              <li>Jacob Samson</li>
+              <li>Jazmin Corrujedo</li>
+              <li>Jeremiah McKinney</li>
+              <li>Johnel Quigley</li>
+              <li>Katie Solis</li>
+              <li>Kim Friedlander</li>
+              <li>Lena Beck</li>
+              <li>Liam Behan</li>
+              <li>Liam Gorelin</li>
+              <li>Marley King</li>
+              <li>Matthew Zipparo</li>
+              <li>Nick Del Bianco</li>
+              <li>Nick Ferrara</li>
+              <li>Nicole Beltre</li>
+              <li>Nicole Earle</li>
+              <li>Peter Cricchio</li>
+              <li>Red Permaul</li>
+              <li>Rowan Davidson</li>
+              <li>Ryan Wade</li>
+              <li>Samantha Cooper</li>
+              <li>Stella LaFollette</li>
+              <li>Tim Borland</li>
+              <li>Vivian Kelleher</li>
+            </ul>
           </section>
         </div>
       </Container>
@@ -118,8 +148,22 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
   document.addEventListener("DOMContentLoaded", () => {
     const staticVideo = document.querySelector<HTMLVideoElement>(".tv-static-bg");
     const pauseBtn = document.querySelector<HTMLButtonElement>(".pause-static-btn");
-    const scrollRoot = document.querySelector(".page-snap");
-    const pictures = document.querySelectorAll(".page-snap .picture");
+    const scrollRoot = document.querySelector<HTMLElement>(".page-snap");
+    const fadeItems = document.querySelectorAll(".page-snap .picture, .page-snap .everybody");
+
+    const scrollToHashTarget = (behavior: ScrollBehavior = "smooth") => {
+      if (!scrollRoot || !window.location.hash) return;
+
+      const target = document.querySelector<HTMLElement>(window.location.hash);
+      if (!target) return;
+
+      const offsetVar = getComputedStyle(scrollRoot).getPropertyValue("--crew-title-height").trim();
+      const offset = Number.parseFloat(offsetVar) || 0;
+      const relativeTop = target.getBoundingClientRect().top - scrollRoot.getBoundingClientRect().top;
+      const top = Math.max(scrollRoot.scrollTop + relativeTop - offset, 0);
+
+      scrollRoot.scrollTo({ top, behavior });
+    };
 
     if (staticVideo && pauseBtn) {
       pauseBtn.addEventListener("click", () => {
@@ -136,7 +180,15 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       });
     }
 
-    if (!scrollRoot || !pictures.length) return;
+    if (scrollRoot) {
+      // Keep in-page anchors working when the page uses an internal scroll container.
+      scrollToHashTarget("auto");
+      requestAnimationFrame(() => scrollToHashTarget("auto"));
+      setTimeout(() => scrollToHashTarget("auto"), 120);
+      window.addEventListener("hashchange", () => scrollToHashTarget("smooth"));
+    }
+
+    if (!scrollRoot || !fadeItems.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -150,11 +202,25 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       }
     );
 
-    pictures.forEach((picture) => observer.observe(picture));
+    fadeItems.forEach((item) => observer.observe(item));
   });
 </script>
 
 <style>
+.everybody{
+  list-style: none;
+  columns: 3;
+  column-gap: 80px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  font-size: 24px;
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 280ms ease, transform 280ms ease;
+  will-change: opacity, transform;
+}
+
   body{
     background-color: #010322;
   }
@@ -206,8 +272,14 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     transform: scale(1);
   }
 
+  .everybody.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    :global(.page-snap .picture) {
+    :global(.page-snap .picture),
+    .everybody {
       transform: none;
       transition: none;
     }
@@ -243,6 +315,17 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     text-align: center;
   }
 
+  #everybody {
+    scroll-margin-top: var(--crew-title-height);
+  }
+
+  #everybody .snap-section {
+    grid-template-columns: 1fr;
+    width: 100%;
+    justify-items: center;
+    gap: 0;
+  }
+
   .intro-panel {
     justify-content: center;
     align-items: center;
@@ -266,15 +349,24 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
   }
 
   @media (max-width: 870px) {
+    .everybody{
+      columns: 2;
+      margin-top: 100px;
+      font-size: 18px;
+      column-gap: 40px;
+    }
+
     .page-snap {
       --crew-title-height: 64px;
       scroll-snap-type: y mandatory;
     }
 
     .snap-panel {
-      min-height: auto;
-      scroll-snap-align: none;
-      scroll-snap-stop: normal;
+      min-height: calc(100svh - var(--crew-title-height));
+      min-height: calc(100vh - var(--crew-title-height));
+      min-height: calc(100dvh - var(--crew-title-height));
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
     }
 
     .body {
@@ -312,7 +404,7 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       width: 400px;
       height: auto;
 
-    margin-top:50px
+    margin-top:75px
     }
   }
 
