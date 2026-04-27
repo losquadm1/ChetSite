@@ -1,10 +1,10 @@
 ---
-const {name}= Astro.props;
-const {role}= Astro.props;
-const {picture}= Astro.props;
+import { Image } from "astro:assets";
+
+const { name, role, picture, width = 800, height = 1066 } = Astro.props;
 ---
 <div class="picture">
-    <img src={picture}/>
+    <Image src={picture} alt={name} width={width} />
 
     <div class="name">
         <h3>{name}</h3>
@@ -24,9 +24,10 @@ const {picture}= Astro.props;
     margin-top: 50px;
     aspect-ratio: 3 / 4;
     flex-wrap: nowrap;
+    width: 100%;
 }
 .picture img {
-    width: min(100%, 400px);
+    width: clamp(220px, 30vw, 460px);
     max-width: 100%;
     height: auto;
 }
@@ -44,9 +45,9 @@ const {picture}= Astro.props;
 }
 
 
-@media (max-height: 800px) {
+@media (max-height: 700px) {
     .picture img {
-        width: min(100%, 300px);
+        width: clamp(180px, 24vw, 320px);
         max-width: 90vw;
         height: auto;
     }
@@ -54,10 +55,10 @@ const {picture}= Astro.props;
 
 @media (min-height: 1080px) {
     .picture img {
-    width: min(58vw, 820px);
+    width: clamp(260px, 28vw, 520px);
         max-width: 100%;
         height: auto;
-}
+    }
 }
 
 

@@ -10,6 +10,12 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 import Picture from "@components/Picture.astro";
 import HeadTitleS from "@components/HeadTitleStick.astro";
 import Footer from "@components/Footer.astro";
+import Mars from "@assets/images/crew/Mars.webp";
+import Dom from "@assets/images/crew/Dom.webp";
+import Krys from "@assets/images/crew/Krys.webp";
+import Meech from "@assets/images/crew/Meech.webp";
+import Corrine from "@assets/images/crew/Corrine.webp";
+import Placehold from "@assets/images/crew/pictureplacehold.webp";
 ---
 
 <Layout title="Meet the Crew">
@@ -31,12 +37,12 @@ import Footer from "@components/Footer.astro";
             <Picture
               name="Michael Losquadro"
               role="Director/Lead Designer"
-              picture="/images/pictureplacehold.webp"/>
+              picture={Placehold}/>
 
             <Picture
               name="Candice Leach"
               role="Writer/Lead Puppeteer"
-              picture="/images/pictureplacehold.webp"/>
+              picture={Placehold}/>
           </section>
         </div>
       </Container>
@@ -49,12 +55,12 @@ import Footer from "@components/Footer.astro";
             <Picture
               name="Mars McInerny"
               role="Audio Engineer/Jo"
-              picture="/images/crew/Mars.webp"/>
+              picture={Mars}/>
 
             <Picture
               name="Dom Cacchione"
               role="Todd"
-              picture="/images/crew/Dom.webp"/>
+              picture={Dom}/>
           </section>
         </div>
       </Container>
@@ -67,12 +73,12 @@ import Footer from "@components/Footer.astro";
             <Picture
               name="Corinne Stanton"
               role="#1 Slatest in America/Becky"
-              picture="/images/crew/Corrine.webp"/>
+              picture={Corrine}/>
 
             <Picture
               name="Declan Caulfield"
               role="Assistant Director"
-              picture="/images/pictureplacehold.webp"/>
+              picture={Placehold}/>
           </section>
         </div>
       </Container>
@@ -85,12 +91,12 @@ import Footer from "@components/Footer.astro";
             <Picture
               name="Krystal McAdams"
               role="Social Media Manager"
-              picture="/images/crew/Krys.webp"/>
+              picture={Krys}/>
 
             <Picture
               name="Demetria Boussios"
               role="Puppet Designer"
-              picture="/images/crew/Meech.webp"/>
+              picture={Meech}/>
           </section>
         </div>
       </Container>
