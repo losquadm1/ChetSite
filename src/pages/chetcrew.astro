@@ -17,7 +17,7 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
       <HeaderMobile title="Meet the Crew"/>
           <HeadTitleS title="Meet the Chet Crew"/>
 
-  <video class="tv-static-bg" autoplay muted loop playsinline aria-hidden="true">
+  <video class="tv-static-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
     <source src="/images/TVStatic.webm" type="video/webm" />
   </video>
 
@@ -150,6 +150,16 @@ import HeadTitleS from "@components/HeadTitleStick.astro";
     const pauseBtn = document.querySelector<HTMLButtonElement>(".pause-static-btn");
     const scrollRoot = document.querySelector<HTMLElement>(".page-snap");
     const fadeItems = document.querySelectorAll(".page-snap .picture, .page-snap .everybody");
+
+    if (staticVideo) {
+      staticVideo.defaultMuted = true;
+      staticVideo.muted = true;
+      staticVideo.autoplay = true;
+      staticVideo.playsInline = true;
+      staticVideo.setAttribute("playsinline", "");
+      staticVideo.setAttribute("webkit-playsinline", "");
+      staticVideo.play().catch(() => {});
+    }
 
     const scrollToHashTarget = (behavior: ScrollBehavior = "smooth") => {
       if (!scrollRoot || !window.location.hash) return;

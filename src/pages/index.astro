@@ -16,7 +16,7 @@ import HeadTitle from "@components/HeadTitle.astro";
   <HeaderMobile title="Home"/>
 
   <div class="herovid">
-    <video class="hero-video-layer" autoplay muted loop>
+    <video class="hero-video-layer" autoplay muted loop playsinline webkit-playsinline preload="auto">
       <source src="/images/ChetSiteIntro.webm" type="video/webm">
       Chet Site Intro Video
     </video>
@@ -86,6 +86,16 @@ This website is not only built to show off that perspective, but also to highlig
 <script is:inline>
   const heroVideoLayer = document.querySelector(".hero-video-layer");
   const heroLogoLayer = document.querySelector(".hero-logo-layer");
+
+  if (heroVideoLayer) {
+    heroVideoLayer.defaultMuted = true;
+    heroVideoLayer.muted = true;
+    heroVideoLayer.autoplay = true;
+    heroVideoLayer.playsInline = true;
+    heroVideoLayer.setAttribute("playsinline", "");
+    heroVideoLayer.setAttribute("webkit-playsinline", "");
+    heroVideoLayer.play().catch(() => {});
+  }
 
   if (heroVideoLayer && heroLogoLayer) {
     let fadeDistance = 1;
