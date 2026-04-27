@@ -26,7 +26,9 @@ const {picture}= Astro.props;
     flex-wrap: nowrap;
 }
 .picture img {
-    width:400px
+    width: min(100%, 400px);
+    max-width: 100%;
+    height: auto;
 }
 .name{
     font-size: 20px;
@@ -36,10 +38,15 @@ const {picture}= Astro.props;
     margin-top: -5px;
 }
 
+.name h3,
+.role h4 {
+    font-family: "Courier New", monospace;
+}
+
 
 @media (max-height: 800px) {
     .picture img {
-        width: 300px !important;
+        width: min(100%, 300px);
         max-width: 90vw;
         height: auto;
     }
@@ -47,10 +54,11 @@ const {picture}= Astro.props;
 
 @media (min-height: 1080px) {
     .picture img {
-        width: 600px !important;
-        max-width: none;
+    width: min(58vw, 820px);
+        max-width: 100%;
         height: auto;
 }
-
 }
+
+
 </style>

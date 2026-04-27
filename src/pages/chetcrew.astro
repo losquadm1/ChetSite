@@ -16,7 +16,7 @@ import Footer from "@components/Footer.astro";
   <div class="crew-shell">
       <Header/>
       <HeaderMobile title="Meet the Crew"/>
-          <HeadTitleS title="Meet the Chet Crew"/>
+          <HeadTitleS title="Meet the Crew"/>
 
   <video class="tv-static-bg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true">
     <source src="/images/TVStatic.webm" type="video/webm" />
@@ -96,7 +96,7 @@ import Footer from "@components/Footer.astro";
       </Container>
     </section>
 
-    <section id="everybody" class="snap-panel" data-sticky-subtitle="Everyone Else Who Made This Possible">
+    <section id="everybody" class="snap-panel" data-sticky-subtitle="Everyone Else Who Made Chet Possible!">
       <Container>
         <div class="body">
           <section class="snap-section">
@@ -200,6 +200,7 @@ import Footer from "@components/Footer.astro";
 </script>
 
 <style>
+
 .everybody{
   list-style: none;
   columns: 3;
@@ -207,11 +208,12 @@ import Footer from "@components/Footer.astro";
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 30px;
   opacity: 0;
   transform: scale(0.985);
   transition: opacity 280ms ease, transform 280ms ease;
   will-change: opacity, transform;
+  padding-top: 50px;
 }
 
 .everybody li {
@@ -332,8 +334,9 @@ import Footer from "@components/Footer.astro";
     .everybody{
       columns: 2;
       margin-top: 100px;
-      font-size: 18px;
-      column-gap: 40px;
+      font-size: 16px;
+      column-gap: 30px;
+      padding-top: 30px;
     }
 
     .page-snap {
@@ -342,6 +345,12 @@ import Footer from "@components/Footer.astro";
     }
 
     .snap-panel {
+      min-height: auto;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+
+    #everybody.snap-panel {
       min-height: calc(100svh - var(--crew-title-height));
       min-height: calc(100vh - var(--crew-title-height));
       min-height: calc(100dvh - var(--crew-title-height));
@@ -361,7 +370,7 @@ import Footer from "@components/Footer.astro";
       width: 100vw;
       max-width: none;
       justify-items: stretch;
-      
+      margin-top: 0;
     }
 
     .snap-section :global(.picture) {
@@ -399,11 +408,20 @@ import Footer from "@components/Footer.astro";
     }
   }
 
-@media (min-height: 1080px) {
+  @media (min-height: 1080px) and (min-width: 1200px) {
+    .body {
+      width: min(1200px, 96vw);
+      max-width: none;
+    }
+
     .snap-section {
-      gap: 350px;
+      gap: 150px;
+      grid-template-columns: repeat(2, minmax(380px, 1fr));
     }
-    }
+  }
+  li {
+    font-family: "Courier New", monospace;
+  }
 
 </style>
 
