@@ -1,0 +1,61 @@
+---
+
+---
+<div class="footer">
+    <div class="left">
+<p>©2026 Michael Losquadro</p>
+    </div>
+    <div class="center">
+        <p>Built for SUNY New Paltz 2026 Graphic Design Thesis</p>
+    </div>
+    <div class="right">
+<p>Hand Made With <a href="https://astro.build/">Astro</a> 📺</p>
+    </div>
+</div>
+
+<style>
+    .footer{
+        display: flex;
+        width: 98vw;
+        justify-content: space-between; 
+
+    align-items: flex-end;
+    align-content: flex-end;
+    flex-wrap: wrap;
+
+    padding-top:15px;
+    padding-left:35px;
+    padding-right:35px;
+    padding-bottom:10px;
+    margin-top: auto;
+    
+}
+
+    
+    .left{
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .right{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    @media (max-width: 700px){
+      .footer{
+    padding-top:0px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:5px;   
+      }
+      .center, .right{
+        display: none;
+      }
+      }
+
+    p{
+        font-size: 14px;
+    }
+    
+</style>

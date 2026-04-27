@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
 import HeadTitle from "@components/HeadTitle.astro";
+import Footer from "@components/Footer.astro";
 ---
 
 <Layout title="Home">
@@ -75,7 +76,7 @@ import HeadTitle from "@components/HeadTitle.astro";
 This website is not only built to show off that perspective, but also to highlight all the other aspects that made this project such an important memory for all involved. This site’s primary purpose is documentation and appreciation for the project and all involved.
 </p>
     </div>
-
+<Footer/>
 
       </div>
     </section>
@@ -230,7 +231,7 @@ This website is not only built to show off that perspective, but also to highlig
     position: relative;
     z-index: 600;
     padding-top: 100vh;
-    padding-bottom: 600px;
+    padding-bottom: 500px;
   }
 
 @media (max-height: 1000px) {

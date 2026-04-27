@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 import Story from "@components/Story.astro";
+import Footer2 from "@components/Footer2.astro";
 ---
 
 <Layout title="Crew Stories">
@@ -39,6 +40,7 @@ import Story from "@components/Story.astro";
 </div> 
 </Container>
 
+<Footer2/>
 <style>
     .buttons{
         display: flex;
@@ -90,7 +92,9 @@ import Story from "@components/Story.astro";
         flex-direction: column;
         align-items: center;
         background-color: rgb(0, 0, 0, .2);
-        margin-top: 60px;}
+        margin-top: 60px;
+        padding-bottom: 15px;
+    }
 
     .JoBlog{
         display: flex;
