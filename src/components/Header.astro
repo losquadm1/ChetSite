@@ -1,9 +1,13 @@
 ---
-
+import PauseButton from "./PauseButton.astro"
 ---
 <div class="parent">
 
 <div class="header">
+
+    <div class="pause-button-wrap">
+        <PauseButton/>
+    </div>
 
     <div class="chethand">
         <img src="/images/navhands.webp" alt=""/>
@@ -13,7 +17,7 @@
     <div class="hideOnMobile"><li>
         
     <li>
-        <a href="/">Home</a></li> 󠁯
+        <a href="/">Home</a></li> 
 
           <div class="dropdown">
                  <button class="dropbtn"><span class="dropbtn-label">Episodes</span>
@@ -42,7 +46,7 @@
     
 <li><a href="/jos-blog">Jo's Blog</a></li>
 
-<li><a href="/chetcrew">Meet the Crew</a></li> 󠁯
+<li><a href="/chetcrew">Meet the Crew</a></li> 
 
     </div>
 <li>
@@ -69,6 +73,16 @@ ul {
 
 .hideOnMobile{
     display: flex;
+}
+
+.pause-button-wrap {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1002;
+    display: flex;
+    align-items: center;
 }
 
 

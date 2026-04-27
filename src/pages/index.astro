@@ -115,10 +115,10 @@ This website is not only built to show off that perspective, but also to highlig
       const progress = Math.min(window.scrollY / fadeDistance, 1);
       const videoEffectProgress = Math.min(progress * 2, 1);
       const logoProgress = Math.min(progress * 3, 1);
-      const videoBlurProgress = videoEffectProgress * 0.7;
+      const videoBlurProgress = videoEffectProgress * 0.9;
       const maxVideoBlurPx = 10;
 
-      heroVideoLayer.style.opacity = String(1 - 0.9 * videoEffectProgress);
+      heroVideoLayer.style.opacity = String(1 - 0.95 * videoEffectProgress);
       heroVideoLayer.style.filter = `blur(${maxVideoBlurPx * videoBlurProgress}px)`;
       heroLogoLayer.style.opacity = String(1 - logoProgress);
     };
@@ -214,8 +214,8 @@ This website is not only built to show off that perspective, but also to highlig
   
   .hero-logo-wrap{
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 40px;
+    left: 25px;
     z-index: 500;
     pointer-events: none;
   }

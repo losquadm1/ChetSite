@@ -1,0 +1,91 @@
+---
+
+---
+<div class="pause-button">
+    <button class="pause">
+<div class="front">
+    <img src="/images/tvbutton.svg" alt="pause button">
+</div>
+<div class="back">
+    <img src="/images/TVStaticButton.gif" alt="">
+</div>
+    </button>
+</div>
+
+<style>
+    .pause-button {
+        position: relative;
+        width: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pause-button:hover {
+        -webkit-filter: brightness(60%);
+        filter: brightness(60%);
+    }
+
+    button.pause {
+        all: unset;
+        display: contents;
+    }
+
+    img {
+        width: 50px;
+        display: block;
+    }
+
+    .back {
+        position: relative;
+        width: 35px;
+        transition: opacity 200ms ease;
+    }
+
+    .back.hidden {
+        opacity: 0;
+    }
+
+    .front {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        width: 50px;
+        margin-top: -11px;
+        margin-left: -8px;
+    }
+</style>
+
+<script>
+    const STORAGE_KEY = 'site-paused';
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const stored = localStorage.getItem(STORAGE_KEY);
+    // If no saved preference, default to paused when reduced motion is on
+    let isPaused = stored !== null ? stored === '1' : prefersReducedMotion;
+
+    // Block autoplay while paused
+    document.addEventListener('play', (e) => {
+        if (isPaused && e.target.tagName === 'VIDEO') {
+            e.target.pause();
+        }
+    }, true);
+
+    function applyState(paused) {
+        isPaused = paused;
+        document.querySelectorAll('.back').forEach(el => el.classList.toggle('hidden', paused));
+        document.querySelectorAll('video').forEach(v => paused ? v.pause() : v.play());
+        localStorage.setItem(STORAGE_KEY, paused ? '1' : '0');
+    }
+
+    // Restore state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.back').forEach(el => el.classList.toggle('hidden', isPaused));
+        if (isPaused) {
+            document.querySelectorAll('video').forEach(v => v.pause());
+        }
+    }, { once: true });
+
+    document.querySelectorAll('button.pause').forEach(btn => {
+        btn.addEventListener('click', () => applyState(!isPaused));
+    });
+</script>
