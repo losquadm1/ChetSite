@@ -16,7 +16,10 @@ import HeadTitle from "@components/HeadTitle.astro";
   <HeaderMobile title="Home"/>
 
   <div class="herovid">
-    <img class="hero-video-layer" src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png" alt="Hero Video">
+    <video class="hero-video-layer" autoplay muted loop>
+      <source src="/images/ChetSiteIntro.webm" type="video/webm">
+      Chet Site Intro Video
+    </video>
   </div>
 
   <div class="hero-logo-wrap">
@@ -179,40 +182,37 @@ This website is not only built to show off that perspective, but also to highlig
     left: 0;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
   }
 
-  .herovid img{ 
+  .herovid video{ 
     position: absolute;
     top:0;
     left:0;
     object-fit: cover;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
   }
 
-  .herovid img[src="/images/Screenshot 2025-09-04 at 5.13.12 PM.png"]{
-    
-    height: 100%;
+  .hero-video-layer {
     opacity: 1;
     filter: blur(0px);
   }
   
   .hero-logo-wrap{
     position: fixed;
-    inset: 0;
-    display: grid;
-    place-items: center;
+    bottom: 20px;
+    left: 20px;
     z-index: 500;
     pointer-events: none;
   }
 
   .hero-logo-layer{
-    width: 900px;
-    max-width: 92vw;
+    width: 400px;
     height: auto;
-    transform: translateY(-10%);
     opacity: 1;
   }
 
@@ -224,24 +224,23 @@ This website is not only built to show off that perspective, but also to highlig
   }
 
 @media (max-height: 1000px) {
-  .herovid {
-    height: 1000px;
-  }
-  .hero-logo-wrap {
-    align-content: flex-start;
-    top: 250px;
-  }
   .body {
-    padding-top: 1000px;
+    padding-top: 100vh;
   }
 }
 
 
 @media (max-width: 600px){
-  .hero-logo-layer{
-    width: 400px;
-    height: auto;
+  .hero-logo-wrap {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+  }
 
+  .hero-logo-layer{
   }
 }
 
