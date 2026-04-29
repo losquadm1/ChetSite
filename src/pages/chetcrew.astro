@@ -150,13 +150,18 @@ import Declan from "@assets/images/crew/Declan.webp";
   </div>
   </div>
 
-<Footer/>
+<div class="crew-footer">
+  <Footer/>
+</div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const staticVideo = document.querySelector<HTMLVideoElement>(".tv-static-bg");
     const scrollRoot = document.querySelector<HTMLElement>(".page-snap");
     const fadeItems = document.querySelectorAll(".page-snap .picture, .page-snap .everybody");
+    const panels = document.querySelectorAll<HTMLElement>(".page-snap .snap-panel");
+    const everybodyPanel = document.querySelector<HTMLElement>("#everybody");
+    const crewFooter = document.querySelector<HTMLElement>(".crew-footer");
 
     if (staticVideo) {
       staticVideo.defaultMuted = true;
@@ -188,6 +193,39 @@ import Declan from "@assets/images/crew/Declan.webp";
       requestAnimationFrame(() => scrollToHashTarget("auto"));
       setTimeout(() => scrollToHashTarget("auto"), 120);
       window.addEventListener("hashchange", () => scrollToHashTarget("smooth"));
+    }
+
+    if (scrollRoot && everybodyPanel && crewFooter && panels.length) {
+      const panelRatios = new Map<HTMLElement, number>();
+
+      panels.forEach((panel) => panelRatios.set(panel, 0));
+
+      const panelObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            panelRatios.set(entry.target as HTMLElement, entry.intersectionRatio);
+          });
+
+          let activePanel: HTMLElement | null = null;
+          let bestRatio = 0;
+
+          panelRatios.forEach((ratio, panel) => {
+            if (ratio > bestRatio) {
+              bestRatio = ratio;
+              activePanel = panel;
+            }
+          });
+
+          const showFooter = activePanel === everybodyPanel && bestRatio >= 0.55;
+          crewFooter.classList.toggle("is-visible", showFooter);
+        },
+        {
+          root: scrollRoot,
+          threshold: [0, 0.25, 0.5, 0.75, 1],
+        }
+      );
+
+      panels.forEach((panel) => panelObserver.observe(panel));
     }
 
     if (!scrollRoot || !fadeItems.length) return;
@@ -235,6 +273,20 @@ import Declan from "@assets/images/crew/Declan.webp";
 
   .crew-shell {
     position: relative;
+  }
+
+  .crew-footer {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 220ms ease, visibility 0s linear 220ms;
+  }
+
+  .crew-footer.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
   }
 
   .tv-static-bg {
