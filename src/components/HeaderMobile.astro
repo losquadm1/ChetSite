@@ -9,10 +9,10 @@ import PauseButton from './PauseButton.astro';
         <h1 class="mobile-title">{title}</h1>
         <ul id="sidebar" class="sidebar">
             <div class="x">
+                <PauseButton/>
                 <button type="button" id="closeSidebar">
                     <p>✕</p>
                 </button>
-                <PauseButton/>
             </div>
             <li><a href="/">Home</a></li>
             
@@ -84,11 +84,11 @@ import PauseButton from './PauseButton.astro';
 
 .x {
     display: flex;
-        flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    padding-right: 22px;
-    margin-left: -2px;
+    padding: 0 14px;
     margin-top: -5px;
 }
 
@@ -144,7 +144,7 @@ ul {
 }
 
 .sidebar > li:first-of-type {
-    margin-top: -15px;
+    margin-top: 15px;
 }
 
 /* Sidebar links */
@@ -278,13 +278,13 @@ nav {
 }
 
 /* Mobile responsive adjustments */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .headermobile {
         padding: 0 15px;
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .sidebar {
         width: 100%;
         right: -100%; /* Start fully off-screen for 100% width */

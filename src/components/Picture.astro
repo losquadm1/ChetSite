@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-const { name, role, picture, width = 800, height = 1066 } = Astro.props;
+const { name, role, picture, width = 600, height = 799.5 } = Astro.props;
 ---
 <div class="picture">
     <Image src={picture} alt={name} width={width} />
