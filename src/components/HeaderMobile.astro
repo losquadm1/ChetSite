@@ -85,8 +85,9 @@ import PauseButton from './PauseButton.astro';
 .x {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    gap: 0px;
     width: 100%;
     padding: 0 14px;
     margin-top: -5px;
@@ -147,6 +148,9 @@ ul {
 
 .sidebar.open {
     right: 0;
+    width: 101%;
+        margin-right: -4px;
+    }
 }
 
 /* Sidebar list items */
@@ -311,10 +315,7 @@ nav {
     width: 30px;
 }
 ul{
-    padding-left: 10px
+    padding-left: 13px;
 }
 
-@media (max-width: 1077px){
-    
-}
 </style>

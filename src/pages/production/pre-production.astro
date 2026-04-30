@@ -9,6 +9,7 @@ import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
 import HeadTitle from "@components/HeadTitle.astro";
 import Footer from "@components/Footer2.astro"; 
+import Carousel from "@components/Carousel.astro";
 ---
 
 <Layout title="Pre-Production">
@@ -79,7 +80,12 @@ black hoodie.</p>
 the most interesting and involve props made throughout the series as well as
 those who worked on them:</p>
 
-<p>[Carasoul of Props and the Creators]</p>
+<Carousel slides={[
+  { src: '/images/carousel/ID.png',      alt: 'Fake ID prop',             caption: 'Fake ID - Created by Michael Losquadro' },
+  { src: '/images/carousel/Sockina.png', alt: 'Sockina puppet',           caption: 'Sockina - Created by Michael Losquadro and Samantha Cooper' },
+  { src: '/images/carousel/Stage.png',   alt: 'Puppet show stage prop',   caption: 'Puppet Show Stage - Created by Michael Losquadro, Jazmin Corrujedo, and Dan Stevens' },
+  { src: '/images/carousel/Chet.png',    alt: 'Chet puppet',              caption: 'Chet - Created by Michael Losquadro and Demetria Boussios' },
+]} />
 
 <h2>Casting</h2>
 

@@ -50,8 +50,15 @@
     }
 
     img {
-        width: 25px;
+        width: 22.87px;
         display: block;
+    }
+    @media (max-width: 800px) {
+        .symbol-play,
+    .symbol-pause  {
+            margin-left: -30px;
+            margin-top: 0px;
+        }
     }
 </style>
 
@@ -64,12 +71,13 @@
 
     // Block autoplay while paused
     document.addEventListener('play', (e) => {
-        if (isPaused && e.target.tagName === 'VIDEO') {
-            e.target.pause();
+        const target = e.target;
+        if (isPaused && target instanceof HTMLVideoElement) {
+            target.pause();
         }
     }, true);
 
-    function applyState(paused) {
+    function applyState(paused: boolean) {
         isPaused = paused;
         document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', paused));
         document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', !paused));

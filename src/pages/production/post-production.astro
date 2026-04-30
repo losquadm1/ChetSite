@@ -78,6 +78,10 @@ import ChetInsta from "@components/ChetInsta.astro";
 	with Lumetri to maintain a good pace and keep up with production. However, as the production continued Michael got more used to the program and had done a majority of the scenes in the 
 	episode entirely in DaVinci. This DaVinci usage carried into “Chet Falls in Love” where the entire episode was colorgraded in the program.</p>
 
+<div class="singlepic">
+<img src="/images/regrade.png" alt="sample from the chet 1 regrade project that is still in the works, this shot is from the end of episode 1 where Todd talks to Chet about Darth Vader."/>
+</div>
+
 <h3>Visual Design and Use of Color</h3>
 
 <p>Since the start color was extremely important within the world of Chet, with the themes of self discovery a lot of characters followed similar color palettes. Seeing how Chet was blue 
@@ -85,6 +89,10 @@ import ChetInsta from "@components/ChetInsta.astro";
 
 <p>Within the case of the story blue often represented both the self as they want to be perceived and the comfort of relying on a persona, a set roll one is given, going hand and hand with 
 	the sitcom layout of the show. While warm tones were typically reserved for foreign examples of the uncomfortable truth and/or outside forces such as the Phycologist and White Rabbit.</p>
+
+<div class="singlepic">
+<img src="/images/colortheorylol.png" alt="Screenshot from Chet Goes to a Party, this scene is when Chet rejects the white rabbit, surrounding himself in blue tones."/>
+</div>
 
 <h2>Outsourcing / Collaboration</h2>
 
@@ -104,16 +112,26 @@ import ChetInsta from "@components/ChetInsta.astro";
 
 <h2>Marketing</h2>
 <p>Marketing for “The Chet Show” has always been fairly light with a few notable ad campaigns, always happening around the release of a new episode. These campaigns were typically kept local to the New Paltz area, with the main form of marketing being “poster-bombing” where the cast and crew went around putting up dozens of posters around campus and town to advertise the new episode.</p>
-[posters]
+<div class="posters">
+  <img src="/images/posters/Chet 1.webp" alt="Chet Goes to the Doctor Poster"/>
+  <img src="/images/posters/Chet 2.webp" alt="Chet Goes to a Party Poster"/>
+  <img src="/images/posters/Chet 3.webp" alt="Chet Falls in Love Poster"/>
+</div>
 <h3>Instagram</h3>
 <p>Chet’s online presence is localized primarily on Instagram. Aside from the YouTube videos, Instagram is where you’ll find the little blue puppet. The Instagram was initially run by Michael Losquadro for both “Chet Goes to the Doctor” and “Chet Goes to a Party”, however as workloads increased for episode 3, the account was eventually handed off to Krystal McAdams as the social media manager.</p>
 <ChetInsta />
+
+
 
 
     </Container>
 </div>
 
   <style>
+    h1, h2, h3{
+    text-align: center;
+}
+
   .Post-Production{
     display: flex;
     flex-direction: column;
@@ -151,4 +169,23 @@ h3{
         p{ 
         width:100%;
       }}
+       .posters{
+
+    
+
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .posters img{
+    width: 240px;
+  }
+
+  @media (max-width: 800px) {
+    .posters{
+      flex-direction: column;
+    }
+  
+  }
   </style>

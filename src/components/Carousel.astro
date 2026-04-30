@@ -1,0 +1,196 @@
+---
+interface Slide {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+interface Props {
+  slides: Slide[];
+  id?: string;
+}
+const { slides, id = 'carousel-' + Math.random().toString(36).slice(2, 7) } = Astro.props;
+---
+
+<div class="carousel" id={id} aria-label="Image carousel" aria-roledescription="carousel">
+  <div class="carousel-stage">
+    <div class="carousel-track" role="list">
+      {slides.map((slide, i) => (
+        <div
+          class="carousel-slide"
+          role="listitem"
+          aria-label={`Slide ${i + 1} of ${slides.length}`}
+        >
+          <img src={slide.src} alt={slide.alt} loading={i === 0 ? 'eager' : 'lazy'} />
+          {slide.caption && <p class="caption">{slide.caption}</p>}
+        </div>
+      ))}
+    </div>
+
+    <button class="carousel-btn prev" aria-label="Previous slide">&#9664;</button>
+    <button class="carousel-btn next" aria-label="Next slide">&#9654;</button>
+  </div>
+
+  <div class="carousel-controls">
+    <span class="carousel-counter">
+      <span class="current">1</span> / <span class="total">{slides.length}</span>
+    </span>
+  </div>
+</div>
+
+<style>
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .carousel-stage {
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overscroll-behavior-x: contain;
+    scroll-snap-stop: always;
+  }
+
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    user-select: none;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
+    background: #111;
+  }
+
+  .caption {
+    width: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--color-text, #fff);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 16px;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+  }
+
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 4px;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--color-text, #fff);
+    font-size: 2rem;
+    width: auto;
+    height: auto;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 150ms ease;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin-top:-20px;
+  }
+
+  .carousel-btn.prev {
+    left: 12px;
+  }
+
+  .carousel-btn.next {
+    right: 12px;
+  }
+
+  .carousel-btn:hover {
+    color: var(--color-accent, #3DC6ED);
+  }
+
+  @media (max-width: 700px) {
+    .carousel-btn {
+      font-size: 1.75rem;
+    }
+
+    .carousel-btn.prev {
+      left: 8px;
+    }
+
+    .carousel-btn.next {
+      right: 8px;
+    }
+  }
+
+  .carousel-counter {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    min-width: 48px;
+    text-align: center;
+  }
+</style>
+
+<script define:vars={{ id }}>
+  const carousel = document.getElementById(id);
+  if (carousel) {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+    const counterEl = carousel.querySelector('.current');
+    let current = 0;
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, slides.length - 1));
+      slides[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      if (counterEl) counterEl.textContent = String(current + 1);
+    }
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+    // Keep counter in sync when user swipes
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = Array.from(slides).indexOf(entry.target);
+          if (idx !== -1) {
+            current = idx;
+            if (counterEl) counterEl.textContent = String(current + 1);
+          }
+        }
+      });
+    }, { root: track, threshold: 0.6 });
+
+    slides.forEach(slide => observer.observe(slide));
+  }
+</script>
