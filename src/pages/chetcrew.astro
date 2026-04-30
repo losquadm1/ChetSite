@@ -255,7 +255,7 @@ import Declan from "@assets/images/crew/Declan.webp";
   margin: 0 auto;
   padding: 0;
   text-align: center;
-  font-size: 24px;
+  font-size: clamp(1rem, 2vw, 24px);
   opacity: 0;
   transform: scale(0.985);
   transition: opacity 280ms ease, transform 280ms ease;
@@ -490,6 +490,13 @@ import Declan from "@assets/images/crew/Declan.webp";
     .snap-section :global(.picture img) {
       width: min(84vw, clamp(220px, 64vw, 380px));
       height: auto;
+    }
+  }
+
+  @media (min-width: 485px) and (max-width: 870px) {
+    .snap-section :global(.picture img) {
+      width: min(72vw, clamp(180px, 52vw, 300px));
+      margin-top: 100px;
     }
   }
 
