@@ -16,35 +16,79 @@ const { name, role, picture, width = 600, height = 799.5 } = Astro.props;
 </div>
 
 <style>
+    .role{
+        margin-top:-5px;
+    }
 .picture {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
-    margin-top: 50px;
-    aspect-ratio: 3 / 4 !important;
+    margin-top: clamp(12px, 4.5vh, 50px);
+    aspect-ratio: 3 / 4;
     flex-wrap: nowrap;
     width: 100%;
 }
 .picture img {
-    height:65vh;
-    width: auto;
-    object-fit: contain;
+    width: clamp(180px, 30vw, 460px);
+    max-width: 100%;
+    height: auto;
 }
-.name{
-    font-size: 20px;
-}
-.role{
-    font-size: 16px;
-    margin-top: -5px;
-}
-
 .name h3,
 .role h4 {
     font-family: "Courier New", monospace;
+    
+}
+
+.name h3 {
+    font-size: 22px;
+    line-height: 1.2;
+    margin: 0;
+    padding-bottom: 4px;
+    text-wrap: balance;
+}
+
+.role h4 {
+    font-size: clamp(0.82rem, 1.35vw, 1rem);
+    line-height: 1.25;
+    margin: 0;
+    padding-bottom: 0;
+    text-wrap: balance;
 }
 
 
+@media (max-height: 700px) {
+    .picture img {
+        width: clamp(180px, 24vw, 320px);
+        max-width: 90vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 870px) {
+    .picture {
+        margin-top: clamp(6px, 2.4vh, 22px);
+        margin-bottom: clamp(10px, 2vh, 20px);
+        gap: clamp(4px, 1.2vh, 10px);
+    }
+
+    .picture img {
+        width: min(84vw, clamp(200px, 62vw, 360px));
+    }
+
+    .name,
+    .role {
+        text-align: center;
+    }
+}
+
+@media (min-height: 1080px) {
+    .picture img {
+    width: clamp(260px, 28vw, 520px);
+        max-width: 100%;
+        height: auto;
+    }
+}
 
 
 </style>

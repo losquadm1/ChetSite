@@ -74,7 +74,7 @@ const { title, subtitle = "The Creators" } = Astro.props;
         padding-top: 5px;
         margin-top: -25px;
         font-family: "Courier New", monospace;
-        font-size: 45px;
+        font-size: 40px;
         opacity: 1;
         transition: opacity 0.15s ease;
     }
@@ -82,18 +82,19 @@ const { title, subtitle = "The Creators" } = Astro.props;
     @media (max-width: 700px) {
         .title-wrap {
             top: 0;
-            padding-top: 114px;
+            padding-top: 50px;
             box-sizing: border-box;
         }
 
         h1 {
             display: none;
+            padding-bottom: 0;
         }
 
         h2 {
             display: block;
-            margin-top: 0;
-            padding-top: 10px;
+            margin-top: 10px;
+            padding-top: 0px;
             font-size: 30px;
         }
 
