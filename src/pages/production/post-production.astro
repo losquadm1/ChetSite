@@ -8,6 +8,7 @@ import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
 import HeaderMobile from "@components/HeaderMobile.astro";
 import HeadTitle from "@components/HeadTitle.astro";
+import ChetInsta from "@components/ChetInsta.astro";
 ---
 
 <Layout title="Post-Production">
@@ -85,7 +86,7 @@ import HeadTitle from "@components/HeadTitle.astro";
 <p>Within the case of the story blue often represented both the self as they want to be perceived and the comfort of relying on a persona, a set roll one is given, going hand and hand with 
 	the sitcom layout of the show. While warm tones were typically reserved for foreign examples of the uncomfortable truth and/or outside forces such as the Phycologist and White Rabbit.</p>
 
-<h2>Outsourcing/Collaboration</h2>
+<h2>Outsourcing / Collaboration</h2>
 
 <p>Chet is a very collaborative project, with a lot of things not being possible for our crew alone, with this in mind a lot of content is either gathered from the 
 	internet or from local talent in the New Paltz area.</p>
@@ -106,7 +107,7 @@ import HeadTitle from "@components/HeadTitle.astro";
 [posters]
 <h3>Instagram</h3>
 <p>Chet’s online presence is localized primarily on Instagram. Aside from the YouTube videos, Instagram is where you’ll find the little blue puppet. The Instagram was initially run by Michael Losquadro for both “Chet Goes to the Doctor” and “Chet Goes to a Party”, however as workloads increased for episode 3, the account was eventually handed off to Krystal McAdams as the social media manager.</p>
-[insta]
+<ChetInsta />
 
 
     </Container>
@@ -129,7 +130,7 @@ import HeadTitle from "@components/HeadTitle.astro";
     font-family: 'Courier', Courier, monospace;
   }
 
-  p{
+  p, li{
   font-family: 'Courier New', Courier, monospace;
 }
     p {
@@ -146,5 +147,8 @@ h3{
         padding-top: 0px;
         padding-bottom: 0px;
       }
-
+@media (max-width: 800px) {
+        p{ 
+        width:100%;
+      }}
   </style>

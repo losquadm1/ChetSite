@@ -3,26 +3,40 @@
 ---
 <div class="pause-button">
     <button class="pause">
-        <div class="symbol-play">
-            <img src="/images/play.svg" alt="play">
-        </div>
-        <div class="symbol-pause">
-            <img src="/images/pause.svg" alt="pause">
-        </div>
+<div class="front">
+    <img src="/images/tvbutton.svg" alt="pause button">
+</div>
+<div class="symbol-play">
+    <img src="/images/play.svg" alt="">
+</div>
+<div class="symbol-pause">
+    <img src="/images/pause.svg" alt="">
+</div>
+<div class="back">
+    <img src="/images/TVStaticButton.gif" alt="">
+</div>
     </button>
 </div>
 
 <style>
-    .symbol-play,
-    .symbol-pause {
+    .symbol-play {
     position: absolute;
     inset: 0;
     z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 21px;
+    margin-top: 1.65px;
+    margin-left: 6.7px;
     opacity: 1;
-    margin-left:-30px
+    }
+
+     .symbol-pause {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 21px;
+    margin-top: 1.65px;
+    margin-left: 8px;
+    opacity: 1;
     }
 
     .symbol-hidden {
@@ -30,7 +44,11 @@
     }
 
     .pause-button {
+        position: relative;
+        width: fit-content;
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .pause-button:hover {
@@ -40,18 +58,32 @@
 
     button.pause {
         all: unset;
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        cursor: pointer;
+        display: contents;
     }
 
     img {
-        width: 25px;
+        width: 50px;
         display: block;
+    }
+
+    .back {
+        position: relative;
+        z-index: 1;
+        width: 35px;
+        transition: opacity 200ms ease;
+    }
+
+    .back.hidden {
+        opacity: 0;
+    }
+
+    .front {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        width: 50px;
+        margin-top: -11px;
+        margin-left: -8px;
     }
 </style>
 
@@ -71,6 +103,7 @@
 
     function applyState(paused) {
         isPaused = paused;
+        document.querySelectorAll('.back').forEach(el => el.classList.toggle('hidden', paused));
         document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', paused));
         document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', !paused));
         document.querySelectorAll('video').forEach(v => paused ? v.pause() : v.play());
@@ -79,6 +112,7 @@
 
     // Restore state on page load
     document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.back').forEach(el => el.classList.toggle('hidden', isPaused));
         document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', isPaused));
         document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', !isPaused));
         if (isPaused) {
