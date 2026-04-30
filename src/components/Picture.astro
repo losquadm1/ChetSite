@@ -31,7 +31,7 @@ const { name, role, picture, width = 600, height = 799.5 } = Astro.props;
 }
 .picture img {
     width: clamp(180px, 30vw, 460px);
-    max-width: 100%;
+    width: auto%;
     height: auto;
 }
 .name h3,
@@ -59,7 +59,6 @@ const { name, role, picture, width = 600, height = 799.5 } = Astro.props;
 
 @media (max-height: 700px) {
     .picture img {
-        width: clamp(180px, 24vw, 320px);
         max-width: 90vw;
         height: auto;
     }
