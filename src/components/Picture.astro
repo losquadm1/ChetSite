@@ -30,8 +30,7 @@ const { name, role, picture, width = 600, height = 799.5 } = Astro.props;
     width: 100%;
 }
 .picture img {
-    width: clamp(180px, 30vw, 460px);
-    width: auto%;
+    width: min(100%, clamp(180px, 30vw, 560px));
     height: auto;
 }
 .name h3,
@@ -83,9 +82,15 @@ const { name, role, picture, width = 600, height = 799.5 } = Astro.props;
 
 @media (min-height: 1080px) {
     .picture img {
-    width: clamp(260px, 28vw, 520px);
+    width: min(100%, clamp(260px, 28vw, 640px));
         max-width: 100%;
         height: auto;
+    }
+}
+
+@media (min-width: 2560px) and (min-height: 1400px) {
+    .picture img {
+        width: min(100%, clamp(320px, 24vw, 780px));
     }
 }
 
