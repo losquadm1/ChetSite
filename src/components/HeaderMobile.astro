@@ -14,27 +14,27 @@ import PauseButton from './PauseButton.astro';
                     <p>✕</p>
                 </button>
             </div>
-            <li><a href="/">Home</a></li>
+            <li class="toppad"><a href="/">Home</a></li>
             
-            <li>
+            <li class="toppad">
                 <span>Episodes</span>
                 <ul>
-                    <li><a href="/episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a></li>
-                    <li><a href="/episodes/2-chet-goes-to-a-party">"Chet Goes to a Party"</a></li>
-                    <li><a href="/episodes/3-chet-falls-in-love">"Chet Falls in Love"</a></li>
+                    <li class="toppad"><a href="/episodes/1-chet-goes-to-the-doctor">"Chet Goes to the Doctor"</a></li>
+                    <li class="toppad"><a href="/episodes/2-chet-goes-to-a-party">"Chet Goes to a Party"</a></li>
+                    <li class="toppad"><a href="/episodes/3-chet-falls-in-love">"Chet Falls in Love"</a></li>
                 </ul>
             </li>
             
-            <li>
+            <li class="toppad">
                 <span>Production</span>
                 <ul>
-                    <li><a href="/production/pre-production">"Pre-Production"</a></li>
-                    <li><a href="/production/production">"Production"</a></li>
-                    <li><a href="/production/post-production">"Post-Production"</a></li>
+                    <li class="toppad"><a href="/production/pre-production">"Pre-Production"</a></li>
+                    <li class="toppad"><a href="/production/production">"Production"</a></li>
+                    <li class="toppad"><a href="/production/post-production">"Post-Production"</a></li>
                 </ul>
             </li>
 
-            <li><a href="/jos-blog">Jo's Blog</a></li>
+            <li class="toppad"><a href="/jos-blog">Jo's Blog</a></li>
 
             <li class="pad"><a href="/chetcrew">Meet the Crew</a></li>
             
@@ -77,11 +77,11 @@ import PauseButton from './PauseButton.astro';
 
 <style>
 /* Close button container */
-li{
-    padding-top:20px;
+.toppad {
+    margin-top: 15px;
 }
-
 .pad{
+    margin-top: 15px;
     padding-bottom:150px
 }
 
