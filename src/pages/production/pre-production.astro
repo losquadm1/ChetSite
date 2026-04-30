@@ -10,6 +10,7 @@ import HeaderMobile from "@components/HeaderMobile.astro";
 import HeadTitle from "@components/HeadTitle.astro";
 import Footer from "@components/Footer2.astro"; 
 import Carousel from "@components/Carousel.astro";
+import Episode from "@components/Episode.astro";
 ---
 
 <Layout title="Pre-Production">
@@ -59,7 +60,9 @@ a fairly typical layout and are followed fairly strictly with the production
 pipeline. On a few occasions the scenes are started with storyboards, such as
 the opening scene of “Chet Goes to the Doctor” and the gas station scene from
 “Chet Goes to a Party”</p>
-
+<div class="video">
+<Episode url="https://www.youtube.com/embed/e2BSAnHx6VA?si=tm4ZNyNBC_ZfEDb_"/>
+</div>
 <h2>Prop-Design</h2>
 
 <p>The prop department consists of a
@@ -323,11 +326,20 @@ beautiful blue boy, and I wouldn’t have it any other way
 
 <img src="/images/preproduction/image011.png" alt="" class="pchet">
 </Container>
-</div></Layout>
+</div>
+</Layout>
 
 <Footer/>
 
 <style>
+  @media (max-width: 700px){
+  .title{
+    margin-top: 20px;
+  }}
+  .video{
+    width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
   .end{
     padding-bottom: 20px;
   }
@@ -394,6 +406,9 @@ beautiful blue boy, and I wouldn’t have it any other way
       }}
       @media (max-width: 800px) {
         p{ 
+        width:100%;
+      }
+      .video{
         width:100%;
       }
     }

@@ -6,6 +6,7 @@ import AstroLogo from "@assets/images/astro-logo-light-gradient.png";
 import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
+import Footer from "@components/Footer2.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 import HeadTitle from "@components/HeadTitle.astro";
 ---
@@ -123,8 +124,9 @@ least amount of scheduling conflicts despite the much larger scale.</p>
 <img class="shrink" src="/images/schedule.PNG" alt="a screenshot of the google calendar used for scheduling"/>
 </div>
  </Container>
-</Layout>
 
+</Layout>
+<Footer/>
 <style>
 .title {
   
@@ -182,5 +184,8 @@ h3{
           width: 100%
         }
     }
-
+ @media (max-width: 700px){
+  .title{
+    margin-top: 20px;
+  }}
 </style>

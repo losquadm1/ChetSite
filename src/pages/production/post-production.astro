@@ -6,6 +6,7 @@ import AstroLogo from "@assets/images/astro-logo-light-gradient.png";
 import { Content as SampleMarkdown } from "@content/sample-markdown.md";
 import { Image } from "astro:assets";
 import Header from "@components/Header.astro"
+import Footer from "@components/Footer2.astro";
 import HeaderMobile from "@components/HeaderMobile.astro";
 import HeadTitle from "@components/HeadTitle.astro";
 import ChetInsta from "@components/ChetInsta.astro";
@@ -129,6 +130,10 @@ import ChetInsta from "@components/ChetInsta.astro";
     </Container>
 </div>
 
+</Layout>
+
+<Footer/>
+
   <style>
     h1, h2, h3{
     text-align: center;
@@ -157,6 +162,11 @@ import ChetInsta from "@components/ChetInsta.astro";
       text-indent: 50px;
       width: 800px;
     }
+
+ @media (max-width: 700px){
+  .title{
+    margin-top: 20px;
+  }}
 
 h2{
         padding-top: 25px;

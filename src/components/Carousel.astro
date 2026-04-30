@@ -26,8 +26,12 @@ const { slides, id = 'carousel-' + Math.random().toString(36).slice(2, 7) } = As
       ))}
     </div>
 
-    <button class="carousel-btn prev" aria-label="Previous slide">&#9664;</button>
-    <button class="carousel-btn next" aria-label="Next slide">&#9654;</button>
+    <button class="carousel-btn prev" aria-label="Previous slide">
+      <img src="/images/arrow.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+    </button>
+    <button class="carousel-btn next" aria-label="Next slide">
+      <img src="/images/arrow.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+    </button>
   </div>
 
   <div class="carousel-controls">
@@ -137,9 +141,24 @@ const { slides, id = 'carousel-' + Math.random().toString(36).slice(2, 7) } = As
     color: var(--color-accent, #3DC6ED);
   }
 
+  .carousel-btn img {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  .carousel-btn.prev img {
+    transform: scaleX(-1);
+  }
+
   @media (max-width: 700px) {
     .carousel-btn {
       font-size: 1.75rem;
+    }
+
+    .carousel-btn img {
+      width: 28px;
+      height: 28px;
     }
 
     .carousel-btn.prev {
