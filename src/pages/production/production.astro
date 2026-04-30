@@ -11,10 +11,176 @@ import HeadTitle from "@components/HeadTitle.astro";
 ---
 
 <Layout title="Production">
-
-  <Header/>
   <HeaderMobile title="Production"/>
+  <Header/>
 
-  <Container>
-<HeadTitle title="Production"/>
+
+  <Container><div class="Production">
+    <h1 class="title">Production</h1>
+<p>Production is both the largest and
+smallest part of an episode’s timeline. For the average episode of
+“The Chet Show” production takes around 1-2 months of filming,
+typically running concurrently with the end of pre-production and the
+beginning of post-production. This is where all of the magic really
+starts to take shape.</p>
+<h2>Cinematography</h2>
+<p>Cinematography led by Michael Losquadro
+follows a complementary approach to the storytelling at hand,
+utilizing quick cuts and heavy use of swipes, the camera work of chet
+is meant to complement the pacing at hand. When the scene wants to
+feel hectic and loud, the cinematography complements that, when it's
+time for a quiet scene of Chet talking with someone, the camera slows
+down alongside it. The primary goal of Chet’s camera work is to
+complement the story and sit alongside the feeling of the episode.</p>
+<p>Some of the primary influences for the
+cinematography of Chet are “How I Met Your Mother”, “Community”,
+“The Babadook” and the work of Sam Raimi.</p>
+<video autoplay muted loop playsinline>
+  <source src="/images/JoGif.webm" type="video/webm" />
+  Jo moving against the wall and sliding down, one of the crew's favorite shots.
+</video>
+<h2>Equipment</h2>
+<p>Equipment is rented and used from
+multiple different sources, primarily from Hawk Studios and later
+from the Coykendall Science Building equipment room. There are three
+primary</p>
+<h3>Camera</h3>
+<p>To date, "The Chet Show" has been
+shot on Blackmagic Pocket Cinema cameras, starting on a 4k camera
+body and eventually moving to a model with a 6k Full Frame sensor.
+Blackmagic makes incredibly affordable cameras, and our access to
+this equipment through the school let us make the absolute most of
+what these cameras had to offer. Shooting in 6k rather than 4k was
+incredibly helpful for reframing shots, it gave us a little bit more
+wiggle room where we could crop slightly in and rotate shots, hide
+Candice’s arm or make sure each character landed on their perfect
+mark, without losing out on any visual quality on the 4k release.
+Episode 3 was shot with the entire 6k 3:2 full frame sensor, giving
+us even more room to move around shots in post. The consequence of
+this is file storage, usually a student project would shoot in 4k to
+save storage space, and therefore budget, but the benefits that the
+puppet-centric production gains from shooting at this incredibly high
+fidelity makes it worth the extra size.</p>
+<h3>Audio</h3>
+<p>Our main audio source for most scenes
+is a standard boom setup, usually a Zoom h4 or h6 with a Sennheiser
+shotgun mic on a pole, but the backup lavalier microphones were DJI
+bluetooth packs rather than traditional radio lavs. Bluetooth
+connections are significantly less reliable than radio, but the
+internal storage of the individual DJI packs became very convenient
+for the scale we were working at. Humorously, in outtakes and
+bloopers you can see the lead actors managing the recording of their
+own lav packs, instead of them being operated remotely by the
+receiver.</p>
+<h3>Lighting</h3>
+<p>Aputure makes fantastic lighting
+equipment with customizable hue, saturation, and intensity values,
+which helped create some of the iconic extreme colored lighting
+throughout the show. However, their line of portable MC LED lights
+have completely changed the game for indie filmmaking.
+Battery-operated, pocket-sized, magnetic LEDs that can throw a ton of
+light from almost anywhere on set. Most shots in “The Chet Show”
+have a larger, more traditional key light, but the rest of the
+lighting is usually handled by several Aputure MCs, because of their
+incredible speed and convenience compared to traditional lighting
+solutions.</p>
+<img class= shrink src="/images/lighting.jpg" alt="behind the scenes shot of Chet and Todd, with the lighting setup visible"/>
+<h2>Acting</h2>
+<p>One of the most unique things about
+“The Chet Show’s” production is the acting. Not just that these
+people have to act against an inanimate object, but that the same
+group of people is playing the same characters every time. Candice,
+Dom, and Mars have been Chet, Todd, and Jo for almost two years at
+this point, so they’re all intimately familiar with these
+characters and how to play them. This also allows them to be more
+involved in the writing process, as the people they are in the real
+world start to rub off on the characters in the show. This creates a
+very natural, real-feeling rapport and patter of dialogue between the
+group, which does an incredible job at selling the idea that Chet is
+really there. Because characters talk over each other, and the script
+leaves room for these actors to improv, the lines for Chet are
+actually delivered in real time along with the other actors. It would
+be much easier to dub Chet, but the performance feels more natural
+when they’re really talking to each other.</p>
+<h2>Scheduling</h2>
+<p>Scheduling was one of the factors that
+changed the most from episode-to-episode. Initially scheduling was
+primarily handled by Candice Leach in “Chet Goes to the Doctor”
+as she had the most experience in film. Scheduling went smooth enough
+for the smaller scale first episode, but for episode 2, work needed
+to be divided up more to handle the larger scope. For this,
+scheduling was picked up by Mars MacInerney, this went well up until
+the primary set was no longer available for “Chet Goes to a Party”,
+with this situation making the whole project spiral Michael Losquadro
+ended up taking the lead as the scheduler for the project from that
+moment on.</p>
+<p>A large-scale google calendar was set
+up with all major shoots planned out and organized around the actors
+schedules, with all parties having their own separate calendar dates
+scheduled around the episode. This organization strategy followed
+through the production of “Chet Falls in Love” which had the
+least amount of scheduling conflicts despite the much larger scale.</p>
+<img class="shrink" src="/images/schedule.PNG" alt="a screenshot of the google calendar used for scheduling"/>
+</div>
  </Container>
+</Layout>
+
+<style>
+.title {
+  
+}
+
+
+
+.shrink{
+  width:500px
+}
+
+    h1, h2, h3{
+    text-align: center;
+}
+
+  .Production{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+    padding-bottom: 80px;
+    width: 800px;
+    place-self: center;
+  }
+  h1, h2{
+    text-align: center;
+  }
+  h2, h3{
+    font-family: 'Courier', Courier, monospace;
+  }
+
+  p, li{
+  font-family: 'Courier New', Courier, monospace;
+}
+    p {
+      text-indent: 50px;
+      width: 800px;
+    }
+
+h2{
+        padding-top: 25px;
+        padding-bottom: 0px;
+      }
+
+h3{
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+@media (max-width: 800px) {
+        p{ 
+        width:100%;
+      }
+         .Production{
+          width: 100%
+        }
+    }
+
+</style>

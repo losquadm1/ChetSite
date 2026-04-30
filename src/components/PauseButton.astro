@@ -3,11 +3,11 @@
 ---
 <div class="pause-button">
     <button class="pause">
-        <div class="symbol-play">
-            <img src="/images/play.svg" alt="play">
-        </div>
         <div class="symbol-pause">
             <img src="/images/pause.svg" alt="pause">
+        </div>
+        <div class="symbol-play">
+            <img src="/images/play.svg" alt="play">
         </div>
     </button>
 </div>
@@ -79,16 +79,16 @@
 
     function applyState(paused: boolean) {
         isPaused = paused;
-        document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', paused));
-        document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', !paused));
+        document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', !paused));
+        document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', paused));
         document.querySelectorAll('video').forEach(v => paused ? v.pause() : v.play());
         localStorage.setItem(STORAGE_KEY, paused ? '1' : '0');
     }
 
     // Restore state on page load
     document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', isPaused));
-        document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', !isPaused));
+        document.querySelectorAll('.symbol-play').forEach(el => el.classList.toggle('symbol-hidden', !isPaused));
+        document.querySelectorAll('.symbol-pause').forEach(el => el.classList.toggle('symbol-hidden', isPaused));
         if (isPaused) {
             document.querySelectorAll('video').forEach(v => v.pause());
         }
